@@ -53,9 +53,9 @@ export default class DangNhapScreen extends Component {
              />
          <View style={InputStyles.buttonWrapper}>
                   <TouchableOpacity
-                    //style={[{ opacity: opacityStyle }, InputStyles.button]}
+                    onPress={() => this.props.navigation.navigate('HomeApp')}
                   >
-                    <Text style={InputStyles.icon}>{Lang.dangkys}</Text>
+                    <Text style={InputStyles.icon}>{Lang.dangnhap}</Text>
                   </TouchableOpacity>
                 </View>
          

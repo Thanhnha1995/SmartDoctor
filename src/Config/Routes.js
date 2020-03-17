@@ -12,6 +12,12 @@ import HomeScreen from '../Constants/Auth/Home';
 import DangKyScreen from '../Constants/Auth/DangKy';
 import DangNhapScreen from '../Constants/Auth/DangNhap';
 
+//Home App
+import HomeApp from '../Constants/HomeApp/HomeApp';
+//Bac si
+import DanhsachBacSi from '../Constants/BacSi/DanhsachBacSi';
+import ChitTietBacSi from '../Constants/BacSi/ChitTietBacSi';
+
 const Stack = createStackNavigator();
 
 function HomeStack() {
@@ -49,8 +55,25 @@ function HomeStack() {
     options={{ 
       headerShown: false 
       }} />
+        <Stack.Screen 
+    name="HomeApp" 
+    component={HomeApp} 
+    options={{ 
+      headerShown: false 
+      }} />
+           <Stack.Screen 
+    name="DanhsachBacSi" 
+    component={DanhsachBacSi} 
+    options={{ 
+      headerShown: false 
+      }} />
     
-      
+    <Stack.Screen 
+    name="ChitTietBacSi" 
+    component={ChitTietBacSi} 
+    options={{ 
+      headerShown: false 
+      }} />
   </Stack.Navigator>
   
   );
