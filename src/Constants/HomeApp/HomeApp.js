@@ -25,177 +25,177 @@ export default class HomeApp extends React.Component {
   state = {
     DataDefault: [
       {
-        id:'1',
-        hinhanh:'../../../assets/Data/tintuc.jpg',
-        tentintuc:'Người đi khám và điều trị Covid-19 được BHYT chi trả như thế nào?',
-        Noidung:'Bộ Y tế vừa ban hành quyết định bổ sung bệnh viêm đường hô hấp cấp do chủng mới của virus'
-   
+        id: '1',
+        hinhanh: '../../../assets/Data/tintuc.jpg',
+        tentintuc: 'Người đi khám và điều trị Covid-19 được BHYT chi trả như thế nào?',
+        Noidung: 'Bộ Y tế vừa ban hành quyết định bổ sung bệnh viêm đường hô hấp cấp do chủng mới của virus'
+
       }
     ]
   }
 
   async componentDidMount() {
     const DataDefault = await ajax.fetchUsers();
-    this.setState({DataDefault});
+    this.setState({ DataDefault });
   }
 
   render() {
 
     return (
       <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingBottom: theme.sizes.padding }}
-    >
-         <View style={[styles.flex, styles.row, styles.header,]}>
-      <View>
-        <Text style={{ color: theme.colors.caption }}>Xin chào</Text>
-        <Text style={{ fontSize: theme.sizes.font * 2 }}>Nguyễn Trương Thanh Nhã
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: theme.sizes.padding }}
+      >
+        <View style={[styles.flex, styles.row, styles.header,]}>
+          <View>
+            <Text style={{ color: theme.colors.caption }}>Xin chào</Text>
+            <Text style={{ fontSize: theme.sizes.font * 2 }}>Nguyễn Trương Thanh Nhã
         </Text>
-      </View>
-      <View>
-      <TouchableOpacity  onPress={() => this.props.navigation.navigate('HoSoScreen')}>
-      <Image style={styles.avatar} source={require('../../../assets/Data/Demo.jpg')}
- />
-      </TouchableOpacity>
-     
-      </View>
-    </View>
-    <View style={[styles.flex, styles.column, styles.recommended ]}>
-    <View
-          style={[
-            styles.row,
-            styles.recommendedHeader
-          ]}
-        >
-          <Text style={{ fontSize: theme.sizes.font * 1.4 }}>Bạn cần hỗ trợ gì?</Text>
-          <TouchableOpacity activeOpacity={0.5}>
-          </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('HoSoScreen')}>
+              <Image style={styles.avatar} source={require('../../../assets/Data/Demo.jpg')}
+              />
+            </TouchableOpacity>
+
+          </View>
         </View>
-    </View>
-
-    <View style={styles.fullField}>
-
-    <View style={styles.colMainLeft}>
-    <TouchableOpacity  onPress={() => this.props.navigation.navigate('RoomScreen')}>
-
-    <View
-        colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-        style={styles.boxMain}>  
+        <View style={[styles.flex, styles.column, styles.recommended]}>
           <View
-          backgroundColor = '#2283c5'
-          style={styles.highLightBoxMain}>
-    <FontAwesome 
-            style={styles.iconchucnang}
-            name={'comments'} />
-              <Text style={styles.textchucnang}>Chat</Text>
-
+            style={[
+              styles.row,
+              styles.recommendedHeader
+            ]}
+          >
+            <Text style={{ fontSize: theme.sizes.font * 1.4 }}>Bạn cần hỗ trợ gì?</Text>
+            <TouchableOpacity activeOpacity={0.5}>
+            </TouchableOpacity>
           </View>
         </View>
-        </TouchableOpacity>
 
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate('ChonchucnangScreen')}>
-        <View
-        colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-        style={styles.boxMain}>
-<View
-        backgroundColor = '#fab540'
-          style={styles.highLightBoxMain}>
-          <FontAwesome 
-            style={styles.iconchucnang}
-            name={'medkit'} />
-            <Text style={styles.textchucnang}> Đặt lịch</Text>
-          </View>
-        </View>
-</TouchableOpacity>
-  
-    </View>
+        <View style={styles.fullField}>
 
-    <View style={styles.colMainRight}>
-    <TouchableOpacity  onPress={() => this.props.navigation.navigate('DanhsachBacSi')}>
-    <View
-        colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-        style={styles.boxMain}>
-<View
-          backgroundColor = '#50cddf'
-          style={styles.highLightBoxMain}>
-           <FontAwesome 
-            style={styles.iconchucnang}
-            name={'search'} />
-            <Text style={styles.textchucnang}> Tìm bác sĩ</Text>
-          </View>
-        </View>
-</TouchableOpacity>
+          <View style={styles.colMainLeft}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('RoomScreen')}>
 
+              <View
+                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
+                style={styles.boxMain}>
+                <View
+                  backgroundColor='#2283c5'
+                  style={styles.highLightBoxMain}>
+                  <FontAwesome
+                    style={styles.iconchucnang}
+                    name={'comments'} />
+                  <Text style={styles.textchucnang}>Chat</Text>
 
-<TouchableOpacity  onPress={() => this.props.navigation.navigate('DanhsachcauhoiScreen')}>
+                </View>
+              </View>
+            </TouchableOpacity>
 
-        <View
-        colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-        style={styles.boxMain}>
-<View
-          backgroundColor = '#f17867'
-          style={styles.highLightBoxMain}>
-          <FontAwesome 
-            style={styles.iconchucnang}
-            name={'user'} />
-            <Text style={styles.textchucnang}>Đặt câu hỏi</Text>
-          </View>
-        </View>
-        </TouchableOpacity>
-    </View>
-    </View>
-    <Text style={{alignSelf:'center', fontSize:20, marginBottom:10}}>Tin Tức</Text>
-    
-    <View style={[ styles.tintuc ]}>
-    
-    <FlatList
-        keyExtractor={item => item.Id}
-       style={styles.container}
-        data={this.state.DataDefault}
-        onEndReachedThreshold="-0.2"
-        renderItem={({item}) => 
-        <TouchableOpacity
-      delayPressIn={70}
-      activeOpacity={0.8}
-      onPress={() => navigate('DetailsBlogScreen')}>
-
-<View activeOpacity={0.9}>
-    <ImageBackground
-      style={[styles.flex, styles.destination, styles.shadow]}
-      imageStyle={{ borderRadius: theme.sizes.radius }}
-      source={require('../../../assets/Data/tintuc.jpg')}
-    >   
-    </ImageBackground>
-      <View style={[styles.column, styles.destinationInfo, styles.shadow]}>
-        <Text numberOfLines={1} style={{ fontSize: theme.sizes.font * 1.25, fontWeight: '500', paddingBottom: 8, }}>
-         {item.tentintuc}
-        </Text>
-        <View style={[ styles.row, { justifyContent: 'space-between', alignItems: 'flex-end', }]}>
-          <View numberOfLines={2} style={{ color: theme.colors.caption }}>
-          <Text>{item.Noidung}</Text>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChonchucnangScreen')}>
+              <View
+                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
+                style={styles.boxMain}>
+                <View
+                  backgroundColor='#fab540'
+                  style={styles.highLightBoxMain}>
+                  <FontAwesome
+                    style={styles.iconchucnang}
+                    name={'medkit'} />
+                  <Text style={styles.textchucnang}> Đặt lịch</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
 
           </View>
-          <FontAwesome
-            name="chevron-right"
-            size={theme.sizes.font * 0.75}
-            color={theme.colors.caption}
-          />
+
+          <View style={styles.colMainRight}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('DanhsachBacSi')}>
+              <View
+                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
+                style={styles.boxMain}>
+                <View
+                  backgroundColor='#50cddf'
+                  style={styles.highLightBoxMain}>
+                  <FontAwesome
+                    style={styles.iconchucnang}
+                    name={'search'} />
+                  <Text style={styles.textchucnang}> Tìm bác sĩ</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('DanhsachcauhoiScreen')}>
+
+              <View
+                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
+                style={styles.boxMain}>
+                <View
+                  backgroundColor='#f17867'
+                  style={styles.highLightBoxMain}>
+                  <FontAwesome
+                    style={styles.iconchucnang}
+                    name={'user'} />
+                  <Text style={styles.textchucnang}>Đặt câu hỏi</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-  </View>
-  </TouchableOpacity>
-  }/> 
-  <TouchableOpacity  onPress={() => this.props.navigation.navigate('BlogScreen')}>
-  <View style={styles.xemtatcacontainer}>
+        <Text style={{ alignSelf: 'center', fontSize: 20, marginBottom: 10 }}>Tin Tức</Text>
 
-<Text style={styles.xemtatca}> Xem tất cả</Text>
-</View>
-</TouchableOpacity>
-  
-  </View>
+        <View style={[styles.tintuc]}>
 
-    </ScrollView>
- 
+          <FlatList
+            keyExtractor={item => item.Id}
+            style={styles.container}
+            data={this.state.DataDefault}
+            onEndReachedThreshold="-0.2"
+            renderItem={({ item }) =>
+              <TouchableOpacity
+                delayPressIn={70}
+                activeOpacity={0.8}
+                onPress={() => navigate('DetailsBlogScreen')}>
+
+                <View activeOpacity={0.9}>
+                  <ImageBackground
+                    style={[styles.flex, styles.destination, styles.shadow]}
+                    imageStyle={{ borderRadius: theme.sizes.radius }}
+                    source={require('../../../assets/Data/tintuc.jpg')}
+                  >
+                  </ImageBackground>
+                  <View style={[styles.column, styles.destinationInfo, styles.shadow]}>
+                    <Text numberOfLines={1} style={{ fontSize: theme.sizes.font * 1.25, fontWeight: '500', paddingBottom: 8, }}>
+                      {item.tentintuc}
+                    </Text>
+                    <View style={[styles.row, { justifyContent: 'space-between', alignItems: 'flex-end', }]}>
+                      <View numberOfLines={2} style={{ color: theme.colors.caption }}>
+                        <Text>{item.Noidung}</Text>
+
+                      </View>
+                      <FontAwesome
+                        name="chevron-right"
+                        size={theme.sizes.font * 0.75}
+                        color={theme.colors.caption}
+                      />
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            } />
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BlogScreen')}>
+            <View style={styles.xemtatcacontainer}>
+
+              <Text style={styles.xemtatca}> Xem tất cả</Text>
+            </View>
+          </TouchableOpacity>
+
+        </View>
+
+      </ScrollView>
+
     );
   }
 }
@@ -204,14 +204,14 @@ const spaceHeight = deviceHeight - NAV_HEIGHT - TAB_HEIGHT - ELEMENT_HEIGHT;
 const styles = StyleSheet.create({
   flex: {
     flex: 0,
-   
+
   },
   column: {
     flexDirection: 'column'
   },
-  tintuc:{
+  tintuc: {
     flexDirection: 'column',
-    marginBottom:40
+    marginBottom: 40
   },
   row: {
     flexDirection: 'row'
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   destinations: {
     flex: 1,
-    width:90,
+    width: 90,
     justifyContent: 'space-between',
     paddingBottom: 30,
   },
@@ -329,15 +329,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 15,
     paddingRight: 15,
-    marginTop: spaceHeight * 0.2 - 15, 
-    marginBottom: spaceHeight * 0.55 - 15, 
+    marginTop: spaceHeight * 0.2 - 15,
+    marginBottom: spaceHeight * 0.55 - 15,
   },
   colMainLeft: {
     flex: 1,
     marginRight: 8,
   },
   highLightBoxMain: {
-    height: 135, 
+    color:'#2283c5',
+    height: 135,
     borderWidth: 0,
     borderRadius: 9,
     paddingTop: 20,
@@ -345,7 +346,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   boxMain: {
-    height: 135, 
+    height: 135,
     borderWidth: 0,
     borderRadius: 8,
     marginTop: 15,
@@ -356,31 +357,31 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 8,
   },
-  iconchucnang:{
-    marginTop:10,
-    fontSize:50,
-    alignSelf:'center',
-    color:'#fff'
+  iconchucnang: {
+    marginTop: 10,
+    fontSize: 50,
+    alignSelf: 'center',
+    color: '#fff'
   },
-  textchucnang:{
-    marginTop:12,
-    color:'#ffff',
-    alignSelf:'center',
-    fontSize:20,
-    fontWeight:'bold'
+  textchucnang: {
+    marginTop: 12,
+    color: '#ffff',
+    alignSelf: 'center',
+    fontSize: 20,
+    fontWeight: 'bold'
   },
-  xemtatcacontainer:{
-    marginTop:30,
-    alignSelf:'center',
-    width:250,
-    height:50,
+  xemtatcacontainer: {
+    marginTop: 30,
+    alignSelf: 'center',
+    width: 250,
+    height: 50,
     borderWidth: 1,
-    borderRadius:100,
-    color:'#51cde0'
+    borderRadius: 100,
+    color: '#51cde0'
   },
-  xemtatca:{
-    marginTop:10,
-    alignSelf:'center',
-    fontSize:20
+  xemtatca: {
+    marginTop: 10,
+    alignSelf: 'center',
+    fontSize: 20
   }
 });

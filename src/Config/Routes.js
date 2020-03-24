@@ -17,7 +17,8 @@ import HomeApp from '../Constants/HomeApp/HomeApp';
 //Bac si
 import DanhsachBacSi from '../Constants/BacSi/DanhsachBacSi';
 import ChitTietBacSi from '../Constants/BacSi/ChitTietBacSi';
-
+//chat Apps
+//import Rooms from '../Constants/Chat/Room';
 const Stack = createStackNavigator();
 
 function HomeStack() {
@@ -61,6 +62,12 @@ function HomeStack() {
     options={{ 
       headerShown: false 
       }} />
+      {/* <Stack.Screen 
+    name="RoomScreen" 
+    component={Rooms} 
+    options={{ title:'Chat',
+      headerShown: false 
+      }} /> */}
            <Stack.Screen 
     name="DanhsachBacSi" 
     component={DanhsachBacSi} 
