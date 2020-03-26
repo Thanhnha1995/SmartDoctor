@@ -200,5 +200,3 @@ export default class HomeApp extends React.Component {
     );
   }
 }
-const ELEMENT_HEIGHT = 430;
-const spaceHeight = deviceHeight - NAV_HEIGHT - TAB_HEIGHT - ELEMENT_HEIGHT;
