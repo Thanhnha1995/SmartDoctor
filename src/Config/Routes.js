@@ -48,7 +48,7 @@ function HomeStack() {
     name="DangKyScreen" 
     component={DangKyScreen} 
     options={{ 
-      headerShown: false 
+      headerShown: true,title:'',headerBackTitle: 'back',
       }} />
       <Stack.Screen 
     name="DangNhapScreen" 

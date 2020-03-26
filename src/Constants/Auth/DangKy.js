@@ -3,9 +3,12 @@ import { Image, Text, View, ScrollView,TouchableOpacity } from "react-native";
 import { Color, Images, Lang } from "@Common";
 import Block from "../../Components/Block";
 import Input from "../../Components/Input";
+import { StatusBar } from "react-native";
 export default class DangKyScreen extends Component {
   render() {
     return (
+      
+      
       <View style={{ flex: 1 }}>
         <ScrollView>
           <Block center middle>

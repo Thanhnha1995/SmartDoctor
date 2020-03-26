@@ -16,12 +16,7 @@ import {
 } from 'react-native'
 import * as theme from '../../Common/Theme';
 import styles from "./styles";
-import CommonStyles, {
-  deviceHeight,
-  NAV_HEIGHT,
-  TAB_HEIGHT,
-} from '../Styles/HomeApp/CommonStyles';
-// const { width, height } = Dimensions.get('window');
+
 export default class HomeApp extends React.Component {
   state = {
     DataDefault: [
