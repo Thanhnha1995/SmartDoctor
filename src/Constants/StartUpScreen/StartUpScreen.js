@@ -12,13 +12,14 @@ import {
 } from 'react-native';
 // import thư viện common
 import {Color, Images} from '@Common';
+import styles from "./styles";
 export default class StartUpScreen extends Component {
   render() {
     // set thời gian chờ màn hình
     setTimeout(
       () => {
         this.props.navigation.navigate('IntroScreen')
-      }, 8000
+      },8000
     );
 
     return (
@@ -26,10 +27,10 @@ export default class StartUpScreen extends Component {
                    <StatusBar hidden />
 
         <View style={{alignSelf:'center'}}>
-        <View style={{alignSelf:'center', marginTop: '50%'}}>
+        <View style={styles.bao}>
           <Image   
             source={Images.StartUpScreen}
-            style={{width: 320, height: 80}}
+            style={styles.icon}
           />
         </View>
       </View>

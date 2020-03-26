@@ -72,14 +72,14 @@ function HomeStack() {
     name="DanhsachBacSi" 
     component={DanhsachBacSi} 
     options={{ 
-      headerShown: false 
+      headerShown: true,title:'',headerBackTitle: 'back', 
       }} />
     
     <Stack.Screen 
     name="ChitTietBacSi" 
     component={ChitTietBacSi} 
     options={{ 
-      headerShown: false 
+      headerShown: true,title:'',headerBackTitle: 'back', 
       }} />
   </Stack.Navigator>
   
