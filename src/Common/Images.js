@@ -19,6 +19,12 @@ const Images = {
   //   Woman: require("@images/banner/man.png"),
   //   Bag: require("@images/banner/bag.png"),
   // },
+
+  //chi tiết bác sĩ 
+  David:require("@Imgs/Infordoctor/DavidBeckham.jpeg"),
+  Martin:require("@Imgs/Infordoctor/MartinGarix.jpg"),
+  Alan:require("@Imgs/Infordoctor/AlanWarker.jpg"),  
+  micle:require("@Imgs/Infordoctor/miclejacson.jpg"),  
 };
 
 export default Images;
