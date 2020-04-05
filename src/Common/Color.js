@@ -11,5 +11,9 @@ export default {
   bgxam:'#9b9ea3',
   bgxanh:'#1f76d3',
   green01: '#008388',
-  green02:'#4abf91'
-}
+  green02:'#4abf91',
+  green03:"#4abf92",
+  gray:'#9b9ea3',
+  white:"#ffff"
+
+};

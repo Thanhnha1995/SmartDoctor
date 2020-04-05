@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1036,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 14776,
+  "expoServerNgrokUrl": "https://ut-dd7.anonymous.smartdoctor.exp.direct",
+  "packagerNgrokUrl": "https://packager.ut-dd7.anonymous.smartdoctor.exp.direct",
+  "ngrokPid": 6532
 }
