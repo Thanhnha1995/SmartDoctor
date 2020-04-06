@@ -42,6 +42,7 @@ export default class ChiTietTinTuc extends React.Component {
                 }}>
                   <Text style={styles.btncamon} >chia sẽ</Text>
                 </View>
+                
               </View>
               <View style={styles.line}></View>
           </View>

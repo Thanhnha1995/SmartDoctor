@@ -37,15 +37,15 @@ export default class DangNhap extends Component {
                   inputType="matkhau"
                   label={Lang.matkhau}
                   style={{ marginBottom: 25 }}
-                  rightLabel={
-                    <Text
-                      paragraph
-                      color="gray"
-                      onPress={() => navigation.navigate("Forgot")}
-                    >
-                     {Lang.qmk}
-                    </Text>
-                  }
+                  // rightLabel={
+                  //   <Text
+                  //     paragraph
+                  //     color="gray"
+                  //     onPress={() => navigation.navigate("Forgot")}
+                  //   >
+                  //    {Lang.qmk}
+                  //   </Text>
+                  // }
                 />
                 <View style={styles.buttonWrapper}>
                   <TouchableOpacity

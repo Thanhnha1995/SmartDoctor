@@ -46,7 +46,8 @@ function HomeStack() {
         name="DangKy"
         component={DangKy}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
             <Stack.Screen
@@ -67,7 +68,8 @@ function HomeStack() {
         name="DanhSachCauHoi"
         component={DanhSachCauHoi}
         options={{
-          headerShown: true,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
 
@@ -83,7 +85,8 @@ function HomeStack() {
         name="DatCauHoi"
         component={DatCauHoi}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
       <Stack.Screen
@@ -97,7 +100,8 @@ function HomeStack() {
         name="LichSuCauHoi"
         component={LichSuCauHoi}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
 
@@ -105,28 +109,32 @@ function HomeStack() {
         name="DanhsachBacSi"
         component={DanhsachBacSi}
         options={{
-          headerShown: true,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
       <Stack.Screen
         name="ChietTietBacSi"
         component={ChietTietBacSi}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
         <Stack.Screen
         name="Chat"
         component={Chat}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
        <Stack.Screen
         name="DanhSachTinTuc"
         component={DanhSachTinTuc}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
 
@@ -134,7 +142,8 @@ function HomeStack() {
         name="ChiTietTinTuc"
         component={ChiTietTinTuc}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
     </Stack.Navigator>

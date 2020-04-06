@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
       flex:1/3,
     },
     tieude:{
-      flex:1/4,
+      flex:1/6,
     },
     image:{
       width:'100%',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
       fontSize:20
     },
     line:{
-      marginTop:20,
+      marginTop:55,
       width:'90%',
       margin:20,
       borderWidth: 0.5,

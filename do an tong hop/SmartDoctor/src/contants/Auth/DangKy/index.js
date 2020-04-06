@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Image, Text, View, ScrollView, TouchableOpacity } from "react-native";
-import { Images, Lang } from "@Common";
+import { Images, Lang, Color } from "@Common";
 import Block from "../../../components/Block";
 import Input from "../../../components/Input";
 export default class DangKy extends Component {
@@ -53,7 +53,8 @@ export default class DangKy extends Component {
                 />
                 <View style={styles.buttonWrapper}>
                   <TouchableOpacity
-                  //style={[{ opacity: opacityStyle }, InputStyles.button]}
+                  // style={[{ opacity: opacityStyle }, InputStyles.button]}
+                  // style={[styles.button, { backgroundColor: Color.bgxanh }]}
                   >
                     <Text style={styles.icon}>{Lang.dangkys}</Text>
                   </TouchableOpacity>
