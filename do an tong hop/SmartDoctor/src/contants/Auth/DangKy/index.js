@@ -45,14 +45,17 @@ export default class DangKy extends Component {
                   label={Lang.dienthoai}
                   style={{ marginBottom: 23 }}
                 />
+                
                 <Input
                   full
                   inputType="diachi"
-                  label={Lang.dienchi}
+                  label={Lang.diachi}
                   style={{ marginBottom: 23 }}
                 />
                 <View style={styles.buttonWrapper}>
                   <TouchableOpacity
+                  
+                  onPress={() => this.props.navigation.navigate("HomeApp")}
                   // style={[{ opacity: opacityStyle }, InputStyles.button]}
                   // style={[styles.button, { backgroundColor: Color.bgxanh }]}
                   >

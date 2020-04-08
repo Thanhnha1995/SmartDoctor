@@ -56,7 +56,7 @@ export default class DangNhap extends Component {
                 </View>
 
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate("DangKyScreen")}
+                  onPress={() => this.props.navigation.navigate("DangKy")}
                 >
                   <Text paragraph color="gray">
                    {Lang.chuacotk}{" "}

@@ -78,7 +78,8 @@ function HomeStack() {
         name="ChiTietCauHoi"
         component={ChiTietCauHoi}
         options={{
-          headerShown: false,
+          headerShown: true,headerBackTitle: '',
+          title:'',
         }}
       />
       <Stack.Screen
