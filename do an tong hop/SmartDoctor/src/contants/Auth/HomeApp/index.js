@@ -149,15 +149,16 @@ export default class HomeApp extends React.Component {
               <TouchableOpacity
                 delayPressIn={70}
                 activeOpacity={0.8}
-                onPress={() => navigate('ChiTietTinTuc')}>
+                onPress={() => this.props.navigation.navigate('ChiTietTinTuc')}
+                // onPress={() => navigate('ChiTietTinTuc')}
+                >
 
                 <View activeOpacity={0.9}>
                   <ImageBackground
                     style={[styles.flex, styles.destination, styles.shadow]}
                     imageStyle={{ borderRadius: theme.sizes.radius }}
                     source={require('../../../assets/Tintuc/tintuc.jpg')}
-                  >
-                  </ImageBackground>
+                  />
                   <View style={[styles.column, styles.destinationInfo, styles.shadow]}>
                     <Text numberOfLines={1} style={{ fontSize: theme.sizes.font * 1.25, fontWeight: '500', paddingBottom: 8, }}>
                       {item.tentintuc}

@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
       flex:1/3,
     },
     tieude:{
+      marginTop:60,
       flex:1/6,
     },
     image:{
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
       height: 250
     },
     txttieude:{
+      
       marginTop: 10,
       fontSize:20
     },
