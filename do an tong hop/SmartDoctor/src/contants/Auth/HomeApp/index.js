@@ -1,172 +1,211 @@
-import React, { Component } from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import React, { Component } from "react";
+import { FontAwesome } from "@expo/vector-icons";
 import {
+  Animated,
   Text,
+  StyleSheet,
   View,
   ScrollView,
   FlatList,
   Image,
   ImageBackground,
+  Dimensions,
+  Platform,
   TouchableOpacity,
-} from 'react-native'
-import * as theme from '../../../common/Theme';
+} from "react-native";
+import { WebView } from 'react-native-webview';
+
+import * as theme from "../../../common/Theme";
+import { network } from "../../../config/Network";
+import DsTinmoinhat from "../../../Api/Blog/Tintucmoinhat";
+import getToken from "../../../Api/Token/GetToken";
+import checkLogin from "../../../Api/Token/Checklogin";
+
 import { Lang } from "@Common";
 import styles from "./styles";
 
 export default class HomeApp extends React.Component {
-  state = {
-    DataDefault: [
-      {
-        id: '1',
-        hinhanh: '../../../assets/Tintuc/tintuc.jpg',
-        tentintuc: 'Người đi khám và điều trị Covid-19 được BHYT chi trả như thế nào?',
-        Noidung: 'Bộ Y tế vừa ban hành quyết định bổ sung bệnh viêm đường hô hấp cấp do chủng mới của virus'
-
-      }
-    ]
+  constructor(props) {
+    // khai bao tri vao lay thong tin cho room chat
+    super(props);
+    const { params } = this.props.navigation.state;
+    const { navigation } = this.props;
+    const iduser = params.id;
+    const hovaten = params.name;
+    this.state = {
+      dataSource: [],
+      // them state cua room
+      rooms: [],
+      newRoom: "",
+    };
   }
-
-  async componentDidMount() {
-    const DataDefault = await ajax.fetchUsers();
-    this.setState({ DataDefault });
+  componentDidMount() {
+    DsTinmoinhat().then((responeJosn) => {
+      this.setState({
+        dataSource: responeJosn,
+      });
+    });
+    getToken()
+      .then((token) => checkLogin(token))
+      .catch((error) => {
+        console.error(error);
+      });
   }
-
   render() {
-
+    const { navigate } = this.props.navigation;
+    const { params } = this.props.navigation.state;
+    const iduser = params.id;
+    const hovaten = params.name;
+    const hinhanh = params.hinhanh;
+    const chucvu = params.chucvu;
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: theme.sizes.padding }}
       >
-        <View style={[styles.flex, styles.row, styles.header,]}>
+        <View style={[styles.flex, styles.row, styles.header]}>
           <View>
-            <Text style={{ color: theme.colors.caption }}>{Lang.xinchao}</Text>
-            <Text style={{ fontSize: theme.sizes.font * 2 }}>Nguyễn Trương Thanh Nhã
-        </Text>
+            <Text style={{ color: theme.colors.caption }}>Xin chào</Text>
+            <Text style={{ fontSize: theme.sizes.font * 2 }}>{hovaten}</Text>
           </View>
           <View>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('HoSoScreen')}>
-              <Image style={styles.avatar} source={require('../../../assets/avatar/avatar.jpg')}
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("HoSoScreen")}
+            >
+              <Image
+                style={styles.avatar}
+                source={{ uri: `${network}/images/nguoidung/${hinhanh}` }}
               />
             </TouchableOpacity>
-
           </View>
         </View>
         <View style={[styles.flex, styles.column, styles.recommended]}>
-          <View
-            style={[
-              styles.row,
-              styles.recommendedHeader
-            ]}
-          >
-            <Text style={{ fontSize: theme.sizes.font * 1.4 }}>{Lang.hotro}</Text>
-            <TouchableOpacity activeOpacity={0.5}>
-            </TouchableOpacity>
+          <View style={[styles.row, styles.recommendedHeader]}>
+            <Text style={{ fontSize: theme.sizes.font * 1.4 }}>
+              {Lang.hotro}
+            </Text>
+            <TouchableOpacity activeOpacity={0.5}></TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.fullField}>
-
           <View style={styles.colMainLeft}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('DanhSachCauHoi')}>
-
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("DanhSachCauHoi")}
+            >
               <View
-                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-                style={styles.boxMain}>
-                <View
-                  backgroundColor='#2283c5'
-                  style={styles.highLightBoxMain}>
-                  <FontAwesome
-                    style={styles.iconchucnang}
-                    name={'comments'} />
+                colors={["rgb(150,150,150)", "rgb(105,105,105)"]}
+                style={styles.boxMain}
+              >
+                <View backgroundColor="#2283c5" style={styles.highLightBoxMain}>
+                  <FontAwesome style={styles.iconchucnang} name={"comments"} />
                   <Text style={styles.textchucnang}>{Lang.datcauhoi}</Text>
-
                 </View>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChonchucnangScreen')}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate("ChonchucnangScreen")
+              }
+            >
               <View
-                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-                style={styles.boxMain}>
-                <View
-                  backgroundColor='#fab540'
-                  style={styles.highLightBoxMain}>
-                  <FontAwesome
-                    style={styles.iconchucnang}
-                    name={'medkit'} />
+                colors={["rgb(150,150,150)", "rgb(105,105,105)"]}
+                style={styles.boxMain}
+              >
+                <View backgroundColor="#fab540" style={styles.highLightBoxMain}>
+                  <FontAwesome style={styles.iconchucnang} name={"medkit"} />
                   <Text style={styles.textchucnang}> Đặt lịch</Text>
                 </View>
               </View>
             </TouchableOpacity>
-
           </View>
 
           <View style={styles.colMainRight}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('DanhsachBacSi')}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("DanhsachBacSi")}
+            >
               <View
-                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-                style={styles.boxMain}>
-                <View
-                  backgroundColor='#50cddf'
-                  style={styles.highLightBoxMain}>
-                  <FontAwesome
-                    style={styles.iconchucnang}
-                    name={'search'} />
+                colors={["rgb(150,150,150)", "rgb(105,105,105)"]}
+                style={styles.boxMain}
+              >
+                <View backgroundColor="#50cddf" style={styles.highLightBoxMain}>
+                  <FontAwesome style={styles.iconchucnang} name={"search"} />
                   <Text style={styles.textchucnang}> Tìm bác sĩ</Text>
                 </View>
               </View>
             </TouchableOpacity>
 
-
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('DanhsachcauhoiScreen')}>
-
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate("DanhsachcauhoiScreen")
+              }
+            >
               <View
-                colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
-                style={styles.boxMain}>
-                <View
-                  backgroundColor='#f17867'
-                  style={styles.highLightBoxMain}>
-                  <FontAwesome
-                    style={styles.iconchucnang}
-                    name={'user'} />
+                colors={["rgb(150,150,150)", "rgb(105,105,105)"]}
+                style={styles.boxMain}
+              >
+                <View backgroundColor="#f17867" style={styles.highLightBoxMain}>
+                  <FontAwesome style={styles.iconchucnang} name={"user"} />
                   <Text style={styles.textchucnang}>Hồ sơ</Text>
                 </View>
               </View>
             </TouchableOpacity>
           </View>
         </View>
-        <Text style={{ alignSelf: 'center', fontSize: 20, marginBottom: 10 }}>Tin Tức</Text>
+        <Text style={{ alignSelf: "center", fontSize: 20, marginBottom: 10 }}>
+          Tin Tức
+        </Text>
 
         <View style={[styles.tintuc]}>
-
           <FlatList
-            keyExtractor={item => item.Id}
+            keyExtractor={(item) => item.Id}
             style={styles.container}
-            data={this.state.DataDefault}
+            data={this.state.dataSource}
             onEndReachedThreshold="-0.2"
-            renderItem={({ item }) =>
+            renderItem={({ item }) => (
               <TouchableOpacity
                 delayPressIn={70}
                 activeOpacity={0.8}
-                onPress={() => this.props.navigation.navigate('ChiTietTinTuc')}
-                // onPress={() => navigate('ChiTietTinTuc')}
-                >
-
+                onPress={() => navigate("DetailsBlogScreen", { id: item.id })}
+              >
                 <View activeOpacity={0.9}>
                   <ImageBackground
                     style={[styles.flex, styles.destination, styles.shadow]}
                     imageStyle={{ borderRadius: theme.sizes.radius }}
-                    source={require('../../../assets/Tintuc/tintuc.jpg')}
-                  />
-                  <View style={[styles.column, styles.destinationInfo, styles.shadow]}>
-                    <Text numberOfLines={1} style={{ fontSize: theme.sizes.font * 1.25, fontWeight: '500', paddingBottom: 8, }}>
+                    source={{ uri: `${network}/images/tintuc/` + item.hinhanh }}
+                  ></ImageBackground>
+                  <View
+                    style={[
+                      styles.column,
+                      styles.destinationInfo,
+                      styles.shadow,
+                    ]}
+                  >
+                    <Text
+                      numberOfLines={1}
+                      style={{
+                        fontSize: theme.sizes.font * 1.25,
+                        fontWeight: "500",
+                        paddingBottom: 8,
+                      }}
+                    >
                       {item.tentintuc}
                     </Text>
-                    <View style={[styles.row, { justifyContent: 'space-between', alignItems: 'flex-end', }]}>
-                      <View numberOfLines={2} style={{ color: theme.colors.caption }}>
-                        <Text>{item.Noidung}</Text>
-
+                    <View
+                      style={[
+                        styles.row,
+                        {
+                          justifyContent: "space-between",
+                          alignItems: "flex-end",
+                        },
+                      ]}
+                    >
+                      <View
+                        numberOfLines={2}
+                        style={{ color: theme.colors.caption }}
+                      >
+                        <WebView source={{ html: item.Noidung }} />
                       </View>
                       <FontAwesome
                         name="chevron-right"
@@ -177,18 +216,17 @@ export default class HomeApp extends React.Component {
                   </View>
                 </View>
               </TouchableOpacity>
-            } />
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('DanhSachTinTuc')}>
+            )}
+          />
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("BlogScreen")}
+          >
             <View style={styles.xemtatcacontainer}>
-
               <Text style={styles.xemtatca}> Xem tất cả</Text>
             </View>
           </TouchableOpacity>
-
         </View>
-
       </ScrollView>
-
     );
   }
 }

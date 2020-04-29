@@ -1,5 +1,8 @@
 import * as React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {createAppContainer} from 'react-navigation'; // 1.0.0-beta.27
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
+
 import StartUpScreen from "../../contants/StartUpScreen";
 import Intro from "../../contants/Intro";
 import HomeDangNhap from "../../contants/HomeDangNhap";
@@ -16,139 +19,42 @@ import ChietTietBacSi from "../../contants/BacSi/ChietTierBacSi";
 import Chat from "../../contants/BacSi/Chat";
 import DanhSachTinTuc from "../../contants/TinTuc/DanhSachTinTuc";
 import ChiTietTinTuc from "../../contants/TinTuc/ChiTietTinTuc";
-const Stack = createStackNavigator();
 
-function HomeStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="route-name"
-        component={StartUpScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-           <Stack.Screen
-        name="Intro"
-        component={Intro}
-        options={{
-          headerShown: false,
-        }}
-      />
-       <Stack.Screen
-        name="HomeDangNhap"
-        component={HomeDangNhap}
-        options={{
-          headerShown: false,
-        }}
-      />
-         <Stack.Screen
-        name="DangKy"
-        component={DangKy}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-            <Stack.Screen
-        name="DangNhap"
-        component={DangNhap}
-        options={{
-          headerShown: false,
-        }}
-      />
-       <Stack.Screen
-        name="HomeApp"
-        component={HomeApp}
-        options={{
-          headerShown: false,
-        }}
-      />
-             <Stack.Screen
-        name="DanhSachCauHoi"
-        component={DanhSachCauHoi}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
+const TabNavigator = createBottomTabNavigator({
+  HomeApp: HomeApp,
+ 
+});
+
+const TAB = createAppContainer(TabNavigator);
+const RootStack = createStackNavigator(
+  {
+    Init: {
+      screen: StartUpScreen,
+    },
+    Intro:{
+      screen: Intro,
+    },
+    HomeDangNhap:{
+      screen: HomeDangNhap,
+    },
+    DangKy:{
+      screen: DangKy,
+    },
+    DangNhap:{
+      screen: DangNhap,
+    },
+    HomeApp:{
+      screen: TAB,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  },
+);
 
 
-<Stack.Screen
-        name="ChiTietCauHoi"
-        component={ChiTietCauHoi}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-      <Stack.Screen
-        name="DatCauHoi"
-        component={DatCauHoi}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-      <Stack.Screen
-        name="ThongBaoThanhCong"
-        component={ThongBaoThanhCong}
-        options={{
-          headerShown: false,
-        }}
-      />
-           <Stack.Screen
-        name="LichSuCauHoi"
-        component={LichSuCauHoi}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
 
-<Stack.Screen
-        name="DanhsachBacSi"
-        component={DanhsachBacSi}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-      <Stack.Screen
-        name="ChietTietBacSi"
-        component={ChietTietBacSi}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-        <Stack.Screen
-        name="Chat"
-        component={Chat}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-       <Stack.Screen
-        name="DanhSachTinTuc"
-        component={DanhSachTinTuc}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
 
-<Stack.Screen
-        name="ChiTietTinTuc"
-        component={ChiTietTinTuc}
-        options={{
-          headerShown: true,headerBackTitle: '',
-          title:'',
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
 
-export default HomeStack;
+export default createAppContainer(RootStack);
