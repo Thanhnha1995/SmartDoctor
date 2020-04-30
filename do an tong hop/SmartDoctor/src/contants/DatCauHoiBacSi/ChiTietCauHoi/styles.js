@@ -5,13 +5,13 @@ const imageHeight = (imageWidth / 150) * 150;
 export default styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0f6f6",
+    backgroundColor: "#f0f6f6"
   },
   cauhoi: {
-    flex: 1 / 3,
+    flex: 1 / 3
   },
   noidung: {
-    flex: 1,
+    flex: 1
   },
   wrapper: {
     width: width - 20,
@@ -22,28 +22,15 @@ export default styles = StyleSheet.create({
     shadowOpacity: 0.2,
     padding: 10,
     paddingTop: 0,
+
   },
   textnoidung: {
-    flex: 1,
+    flex:1,
     fontSize: 15,
-    marginTop: 20,
+    marginTop: 20
   },
-  texttieude: {
-    fontSize: 15,
-    flex: 1,
-  },
-  viewcauhoinguoidung: {
-    width: "100%",
-    height: 40,
-  },
-  cauhoi: {
-    fontSize: 15,
-    fontWeight: "bold",
-  },
-  cautraloibacsi: {
-    backgroundColor: "#edf7ff",
-    marginTop: 10,
-    width: "100%",
-    height: 50,
-  },
+  texttieude:{
+    fontSize:15,
+    flex:1
+  }
 });

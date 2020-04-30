@@ -2,7 +2,7 @@
 import { StyleSheet,  Dimensions} from "react-native";
 const { width } = Dimensions.get("window");
 export default styles = StyleSheet.create({
-     container: {
+  container: {
     flex: 1,
     backgroundColor: "#f0f6f6"
   },
@@ -51,9 +51,9 @@ export default styles = StyleSheet.create({
   },
   viewcautraloibacsi:{
     marginTop:10,
-    backgroundColor:'#edf7ff',
+   
     width:"100%",
-    height:100
+    height:150
   },
   tenbacsi:{
     fontSize:15,
@@ -70,10 +70,6 @@ export default styles = StyleSheet.create({
     color:"#fff",
     fontWeight:'bold',
     marginTop:20,
-  },
-  viewdatcauhoi: {
-    flex: 1 / 8,
-    backgroundColor: "#4abf92"
-  },
+  }
     });
     

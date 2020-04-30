@@ -6,91 +6,73 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  FlatList,
-  StatusBar
+  FlatList
 } from "react-native";
+const { width } = Dimensions.get("window");
+import { network } from "../../../config/Network";
 import styles from './styles';
 export default class ChiTietCauHoi extends React.Component {
+  state = {
+    data: []
+  };
+  fetchData = async () => {
+    const { params } = this.props.navigation.state;
+    const response = await fetch(
+      `${network}/datcauhoi/chietietcauhoi.php?id=` + params.id
+    );
+    const products = await response.json();
+    this.setState({ data: products });
+  };
+  componentDidMount() {
+    this.fetchData();
+  }
+
   render() {
     return (
-<View style={styles.container}>
-<StatusBar hidden />
-<View style={styles.wrapper}>
-<View style={styles.viewcauhoinguoidung}>
-              <Text
-                style={{
-                  fontSize: 15,
-                  flex: 1,
-                }}
-              >
-                Chào bác sĩ, dạo này gần đây lưỡi mình hay bị rát, đặc biệt hai bên mét lưỡi như răng cứa
+      <FlatList
+        keyExtractor={item => String(item.Id)}
+        data={this.state.data}
+        renderItem={({ item }) => (
+          <View style={styles.container}>
+            <View style={styles.cauhoi}>
+              <View style={styles.wrapper}>
+                <Text style={styles.texttieude}>
+                {item.tendatcauhoi}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.noidung}>
+              <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 20 }}>
+                Trả lời
               </Text>
-            </View>
-            <View style={{marginTop:10}}>
-            <Text style={styles.cauhoi}>Trả lời câu hỏi</Text>
-            <View style={{ flexDirection: "row" }}>
+              <View style={styles.wrapper}>
+                <View style={{ flexDirection: "row" }}>
+                
                 <Image
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 50,
-                  }}
-                  source={require("../../../assets/Tintuc/tintuc.jpg")}
-                />
-                <Text style={{ fontSize: 15, flex: 1 }}>
-                  BS.Nguyễn Trương Thanh Nhã
-                </Text>
+                    style={{
+                      width: 60,
+                      height: 60,
+                      borderRadius: 40
+                    }}
+                    source={{ uri: `${network}/images/bacsi/` + item.hinhanh }}
+                  />
+                  <Text style={{ fontSize: 15}}>
+                  {item.tenbacsi}
+                  
+                    </Text>
+             
+                </View>
+                <View style={{flexDirection:'column'}}>
+                <Text style={styles.textnoidung}>
+                                     {item.noidung}
+                                    </Text>
+                </View>
               </View>
+              
             </View>
-            <View style={{marginTop:10}}>
-            <View style={styles.cautraloibacsi}>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    flex: 1,
-                  }}
-                >
-                Chào bạn, cảm ơn bạn đã gửi câu hỏi đến đội ngủ tư vấn
-                </Text>
-              </View>
-            </View>
-</View>
-</View>
-
-
-    //   <View style={styles.container}>
-    //     <StatusBar hidden />
-    //     <View style={styles.cauhoi}>
-    //       <View style={styles.wrapper}>
-    //         <Text style={styles.texttieude}>
-    //           Chào bác sĩ, dạo này gần đây lưỡi mình hay bị rát.....
-    //         </Text>
-    //       </View>
-    //     </View>
-    //     <View style={styles.noidung}>
-    //       <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 20 }}>
-    //         Trả lời
-    //       </Text>
-    //       <View style={styles.wrapper}>
-    //         <View style={{ flexDirection: "row" }}>
-    //           <Image
-    //             style={{
-    //               width: 60,
-    //               height: 60,
-    //               borderRadius: 40,
-    //             }}
-    //             source={require("../../../assets/Tintuc/tintuc.jpg")}
-    //           />
-    //           <Text style={{ fontSize: 15 }}>BS.Nguyễn Trương Thanh Nhã</Text>
-    //         </View>
-    //         <View style={{ flexDirection: "column" }}>
-    //           <Text style={styles.textnoidung}>
-    //             Chào bạn, cảm ơn bạn đã gửi câu hỏi đến đội ngủ tư vấn
-    //           </Text>
-    //         </View>
-    //       </View>
-    //     </View>
-    //   </View>
+          </View>
+        )}
+      />
     );
   }
 }

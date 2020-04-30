@@ -91,7 +91,7 @@ export default class HomeApp extends React.Component {
         <View style={styles.fullField}>
           <View style={styles.colMainLeft}>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("DanhSachCauHoi")}
+              onPress={() => this.props.navigation.navigate("DanhSachCauHoi",{iduser})}
             >
               <View
                 colors={["rgb(150,150,150)", "rgb(105,105,105)"]}

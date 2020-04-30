@@ -1,8 +1,8 @@
 import * as React from "react";
-import {createAppContainer} from 'react-navigation'; // 1.0.0-beta.27
+import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-
+import {Image} from 'react-native';
 import StartUpScreen from "../../contants/StartUpScreen";
 import Intro from "../../contants/Intro";
 import HomeDangNhap from "../../contants/HomeDangNhap";
@@ -20,41 +20,77 @@ import Chat from "../../contants/BacSi/Chat";
 import DanhSachTinTuc from "../../contants/TinTuc/DanhSachTinTuc";
 import ChiTietTinTuc from "../../contants/TinTuc/ChiTietTinTuc";
 
-const TabNavigator = createBottomTabNavigator({
-  HomeApp: HomeApp,
- 
-});
-
+const TabNavigator = createBottomTabNavigator(
+  {
+    HomeApp: {
+      screen: HomeApp,
+      navigationOptions: {
+        tabBarLabel: "Trang Chủ",
+        tabBarIcon: ({ focused }) => (
+          <>
+            {focused ? (
+              <Image
+                source={require("../../assets/icon/ic_homeEnable.png")}
+                style={{ width: 20, height: 20 }}
+              />
+            ) : (
+              <Image
+                source={require("../../assets/icon/ic_homeDisable.png")}
+                style={{ width: 20, height: 20 }}
+              />
+            )}
+          </>
+        ),
+      },
+    },
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: "#4390DF",
+      inactiveTintColor: "#707070",
+      style: {
+        paddingTop: 11,
+        paddingBottom: 10,
+        height: 63,
+      },
+    },
+  }
+);
 const TAB = createAppContainer(TabNavigator);
 const RootStack = createStackNavigator(
   {
     Init: {
       screen: StartUpScreen,
     },
-    Intro:{
+    Intro: {
       screen: Intro,
     },
-    HomeDangNhap:{
+    HomeDangNhap: {
       screen: HomeDangNhap,
     },
-    DangKy:{
+    DangKy: {
       screen: DangKy,
     },
-    DangNhap:{
+    DangNhap: {
       screen: DangNhap,
     },
-    HomeApp:{
+    HomeApp: {
       screen: TAB,
+    },
+    DanhSachCauHoi: {
+      screen: DanhSachCauHoi,
+    },
+    ChiTietCauHoi: {
+      screen: ChiTietCauHoi,
+    },
+    DatCauHoi: {
+      screen: DatCauHoi,
     },
   },
   {
-    mode: 'modal',
-    headerMode: 'none',
-  },
+    mode: "modal",
+    headerMode: "none",
+  }
 );
-
-
-
-
 
 export default createAppContainer(RootStack);
