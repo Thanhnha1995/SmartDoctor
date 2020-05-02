@@ -17,6 +17,8 @@ import Notification from '../../../components/Notification';
 import Loader from '../../../components/Loader';
 import { ScrollView } from 'react-native-gesture-handler';
 import Register from '../../../Api/Auth/SignUp';
+import {FirebaseApp} from '../../../config/Firebase';
+
 export default class DangKy extends Component {
   constructor(props) {
     super(props);
@@ -119,6 +121,8 @@ export default class DangKy extends Component {
             this.setState({ formValid: false, loadingVisible: false });
        }
        else {
+        FirebaseApp.auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.matkhau)
         this.props.navigation.navigate('DangNhap'),
        this.setState(
         this.setState({ formValid: true, loadingVisible: false })

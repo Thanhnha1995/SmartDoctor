@@ -11,6 +11,7 @@
     "@react-native-community/masked-view": "0.1.5",
     "expo": "~36.0.0",
     "expo-linear-gradient": "~8.0.0",
+    "firebase": "^7.14.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
@@ -23,19 +24,16 @@
     "react-native-render-html": "^4.2.0",
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "^2.5.0",
-    "react-native-simple-radio-button": "^2.7.4",
+    "react-native-simple-radio-button": "^2.7.3",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "7.4.3",
     "react-navigation": "^4.3.7",
     "react-navigation-stack": "^2.3.11",
-    "react-navigation-tabs": "^2.8.11",
-    "react-native-webview": "7.4.3",
-    "firebase": "^6.2.0",
-    "react-native-simple-radio-button": "^2.7.3",
-    "react-native-elements": "^1.1.0"
+    "react-navigation-tabs": "^2.8.11"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.0.0",
-    "@babel/core": "^7.0.0"
+    "@babel/core": "^7.0.0",
+    "babel-preset-expo": "~8.0.0"
   },
   "private": true
 }

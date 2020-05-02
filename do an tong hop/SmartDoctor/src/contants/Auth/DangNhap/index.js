@@ -17,6 +17,7 @@ import Notification from '../../../components/Notification';
 import Loader from '../../../components/Loader';
 import LogIn from '../../../Api/Auth/SignIn';
 import SaveToken from '../../../Api/Token/SaveToken';
+import {FirebaseApp} from '../../../config/Firebase';
 export default class DangNhap extends Component {
  
   constructor(props) {
@@ -50,8 +51,8 @@ export default class DangNhap extends Component {
        }
        else {
         SaveToken(res.token),
-    
-       
+        FirebaseApp.auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.matkhau)    
        this.setState(
         this.props.navigation.navigate('HomeApp',{
           // lay tri tuyen du lieu
