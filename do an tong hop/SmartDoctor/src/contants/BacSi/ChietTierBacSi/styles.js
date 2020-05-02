@@ -37,17 +37,19 @@ const styles = StyleSheet.create({
         marginLeft: 30,
       },
       txtbacsi: {
+        flex:1,
         marginTop: 50,
         marginLeft: 10,
-        fontSize: 20,
+        fontSize: 15,
         color: '#ffff',
         fontWeight: 'bold'
       },
       tenbacsi: {
+        flex:1,
         marginTop: 5,
         marginLeft: 20,
         alignSelf: 'center',
-        fontSize: 25,
+        fontSize: 20,
         color: '#ffff',
         fontWeight: 'bold'
       },

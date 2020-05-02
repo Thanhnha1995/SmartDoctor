@@ -44,7 +44,7 @@ async datcauhois(){
 chuyentrang(){
   const { navigation } = this.props;
       const iduser = navigation.getParam('iduser');
-  this.props.navigation.navigate('LichsucauhoiScreen',{iduser})
+  this.props.navigation.navigate('ThongBaoThanhCong',{iduser})
 }
 
 

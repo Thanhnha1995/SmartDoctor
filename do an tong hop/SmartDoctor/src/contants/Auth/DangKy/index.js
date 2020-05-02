@@ -21,10 +21,10 @@ export default class DangKy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    hovaten:"",
+    hovaten:" ",
 	  idgioitinh:"1",
 	  ngaysinh:"2020/05/01",
-	  diachi:"",
+	  diachi:" ",
 	  sodienthoai:"chua cap nhat",
 	  nghenghiep:"chua cap nhat",
 	  socmnd:"chua cap nhat",

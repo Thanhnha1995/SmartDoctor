@@ -15,27 +15,73 @@ import {
 const { width } = Dimensions.get("window");
 import { ListItem, SearchBar } from "react-native-elements";
 import styles from "./styles";
+import { network } from "../../../config/Network";
 export default class DanhsachBacSi extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        {
-          tenbacsi: "Nguyễn Trương Thanh Nhã",
-          tenchuyenkhoa: "Nội tổng quát",
-          tenbenhvien: "Bệnh viện nhân dân 115",
-          catuvan: "50",
-        },
-        {
-          tenbacsi: "Thanh Nhã",
-          tenchuyenkhoa: "Răng hàm mặt",
-          tenbenhvien: "Bệnh viện răng hàm mặt",
-          catuvan: "150",
-        },
-      ],
+      loading: false,
+      data: [],
+      error: null,
     };
+
+    this.arrayholder = [];
   }
+
+  componentDidMount() {
+    this.makeRemoteRequest();
+  }
+
+  makeRemoteRequest = () => {
+    const url = `${network}/bacsi/dsbacsi.php`;
+    this.setState({ loading: true });
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          data: res,
+          error: res.error || null,
+          loading: false,
+        });
+        this.arrayholder = res;
+      })
+      .catch((error) => {
+        this.setState({ error, loading: false });
+      });
+  };
+  searchFilterFunction = (text) => {
+    this.setState({
+      value: text,
+    });
+
+    const newData = this.arrayholder.filter((item) => {
+      const itemData = `${item.tenbenhvien.toUpperCase()} ${item.tenbacsi.toUpperCase()} ${item.tenchuyenkhoa.toUpperCase()}`;
+      const textData = text.toUpperCase();
+
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({
+      data: newData,
+    });
+  };
+  renderHeader = () => {
+    return (
+      <SearchBar
+        placeholder="Type Here..`."
+        lightTheme
+        round
+        onChangeText={(text) => this.searchFilterFunction(text)}
+        autoCorrect={false}
+        value={this.state.value}
+      />
+    );
+  };
+
   render() {
+    const { navigate } = this.props.navigation;
+    const { navigation } = this.props;
+    const iduser = navigation.getParam("iduser");
     return (
       <View style={styles.container}>
         <StatusBar hidden />
@@ -47,22 +93,33 @@ export default class DanhsachBacSi extends React.Component {
             round
             onChangeText={(text) => this.searchFilterFunction(text)}
             autoCorrect={false}
-            value={this.state.data}
+            value={this.state.value}
           />
         </View>
         <View style={styles.viewnoidung}>
           <FlatList
             data={this.state.data}
             renderItem={({ item }) => (
-              <TouchableOpacity delayPressIn={70} activeOpacity={0.8}
-              onPress={() => this.props.navigation.navigate('ChietTietBacSi')}
+              <TouchableOpacity
+                delayPressIn={70}
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigate("ChietTietBacSi", {
+                    
+                    id: item.idbacsi,
+                    iduser,
+                    idbacsi: item.idbacsi,
+                  })
+                }
               >
                 <View style={styles.thongtinbacsi}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={styles.avatar}>
                       <Image
                         style={styles.imgavatar}
-                        source={require("../../../assets/avatar/avatar.jpg")}
+                        source={{
+                          uri: `${network}/images/bacsi/` + item.hinhanh,
+                        }}
                       />
                     </View>
                     <View>

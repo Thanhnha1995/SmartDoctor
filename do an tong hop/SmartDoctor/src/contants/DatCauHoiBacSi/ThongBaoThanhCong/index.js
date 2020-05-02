@@ -11,7 +11,7 @@ export default class ThongBaoThanhCong extends React.Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            this.props.navigation.navigate("LichSuCauHoi");
+            this.props.navigation.navigate("HomeApp");
           }}
         >
       <View>

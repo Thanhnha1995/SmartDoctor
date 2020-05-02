@@ -21,7 +21,7 @@ export default class DanhSachCauHoi extends React.Component {
     this.state = {
       loading: false,
       danhmuc: [],
-      id: "",
+      id: "1",
       dataxetnghiemtheochuyenmuc: [],
       error: null,
       isLoading: true,

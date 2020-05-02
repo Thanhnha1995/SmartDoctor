@@ -19,7 +19,9 @@ import ChietTietBacSi from "../../contants/BacSi/ChietTierBacSi";
 import Chat from "../../contants/BacSi/Chat";
 import DanhSachTinTuc from "../../contants/TinTuc/DanhSachTinTuc";
 import ChiTietTinTuc from "../../contants/TinTuc/ChiTietTinTuc";
-
+import HomeThongBao from "../../contants/ThongBao/Home";
+import Messages from '../../contants/BacSi/Chat';
+import ThongBaoTuVanHoiDap from '../../contants/ThongBao/ThongBaoTuVanHoiDap';
 const TabNavigator = createBottomTabNavigator(
   {
     HomeApp: {
@@ -36,6 +38,48 @@ const TabNavigator = createBottomTabNavigator(
             ) : (
               <Image
                 source={require("../../assets/icon/ic_homeDisable.png")}
+                style={{ width: 20, height: 20 }}
+              />
+            )}
+          </>
+        ),
+      },
+    },
+    CongDong: {
+      screen: DanhSachCauHoi,
+      navigationOptions: {
+        tabBarLabel: "Cộng Đồng",
+        tabBarIcon: ({ focused }) => (
+          <>
+            {focused ? (
+              <Image
+                source={require("../../assets/icon/ic_congdong_ds.png")}
+                style={{ width: 20, height: 20 }}
+              />
+            ) : (
+              <Image
+                source={require("../../assets/icon/ic_congdong_en.png")}
+                style={{ width: 20, height: 20 }}
+              />
+            )}
+          </>
+        ),
+      },
+    },
+      ThongBao: {
+      screen: HomeThongBao,
+      navigationOptions: {
+        tabBarLabel: "Thông Báo",
+        tabBarIcon: ({ focused }) => (
+          <>
+            {focused ? (
+              <Image
+                source={require("../../assets/icon/ic_notiEnable.png")}
+                style={{ width: 20, height: 20 }}
+              />
+            ) : (
+              <Image
+                source={require("../../assets/icon/ic_notiDisable.png")}
                 style={{ width: 20, height: 20 }}
               />
             )}
@@ -86,6 +130,21 @@ const RootStack = createStackNavigator(
     DatCauHoi: {
       screen: DatCauHoi,
     },
+    ThongBaoTuVanHoiDap:{
+      screen:ThongBaoTuVanHoiDap
+    },
+    ThongBaoThanhCong:{
+      screen:ThongBaoThanhCong
+    },
+    DanhsachBacSi:{
+      screen:DanhsachBacSi
+    },
+    ChietTietBacSi:{
+      screen:ChietTietBacSi
+    },
+    Messages:{
+      screen:Messages
+    }
   },
   {
     mode: "modal",
