@@ -16,19 +16,65 @@ const { width } = Dimensions.get("window");
 import { ListItem, SearchBar } from "react-native-elements";
 import styles from "./styles";
 import { network } from "../../../config/Network";
+import { FirebaseApp } from "../../../config/Firebase";
+
 export default class DanhsachBacSi extends React.Component {
   constructor(props) {
     super(props);
+    const { navigation } = this.props;
+    const iduser = navigation.getParam("iduser");
+    const roomKey = iduser;
+    var firebaseDB = FirebaseApp.database();
+    this.roomsRef = firebaseDB.ref(`rooms/${roomKey}`);
     this.state = {
       loading: false,
       data: [],
       error: null,
+      rooms: [],
+      newRoom: "",
     };
 
     this.arrayholder = [];
   }
+  // lang nghe su kiem cua room
+  listenForRooms(roomsRef) {
+    const { navigation } = this.props;
+    roomsRef.on("value", (dataSnapshot) => {
+      var roomsFB = [];
+      dataSnapshot.forEach((child) => {
+        roomsFB.push({
+          name: child.val().name,
+          key: child.key,
+        });
+      });
+      this.setState({ rooms: roomsFB });
+    });
+  }
+  // them room mới
+  addRoom() {
+    const { navigation } = this.props;
+    const hovaten = navigation.getParam("hovaten");
+    this.roomsRef.push({ name: hovaten });
+    this.setState({ newRoom: hovaten });
+  }
+
+  // ham xu ly chung sư kien
+  _OnPress(item) {
+    const { navigation } = this.props;
+    const iduser = navigation.getParam("iduser");
+    const hovaten = navigation.getParam("hovaten");
+    this.props.navigation.navigate("ChietTietBacSi", {
+      id: item.idbacsi,
+      iduser: iduser,
+      idbacsi: item.idbacsi,
+      tenbacsi: item.tenbacsi,
+      hovaten: hovaten,
+    });
+    this.addRoom();
+  }
 
   componentDidMount() {
+    this.listenForRooms(this.roomsRef);
     this.makeRemoteRequest();
   }
 
@@ -103,14 +149,8 @@ export default class DanhsachBacSi extends React.Component {
               <TouchableOpacity
                 delayPressIn={70}
                 activeOpacity={0.8}
-                onPress={() =>
-                  navigate("ChietTietBacSi", {
-                    
-                    id: item.idbacsi,
-                    iduser,
-                    idbacsi: item.idbacsi,
-                  })
-                }
+                onPress={() => this._OnPress(item)}
+                key={item.idbacsi}
               >
                 <View style={styles.thongtinbacsi}>
                   <View style={{ flexDirection: "row" }}>

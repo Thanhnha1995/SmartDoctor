@@ -59,7 +59,8 @@ export default class DangNhap extends Component {
           name:res.user.hovaten, 
           id:res.user.idnguoidung,
           hinhanh:res.user.hinhanh,
-          chucvu:res.user.chucvu
+          chucvu:res.user.chucvu,
+          hovaten:res.user.hovaten, 
         }),
         this.setState({ formValid: true, loadingVisible: false })
        )}})}

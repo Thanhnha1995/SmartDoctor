@@ -8,7 +8,7 @@ export default class HomeThongBao extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { params } = this.props.navigation.state;
-    const iduser = params.id;
+    const iduser = params.iduser;
     return (
       <View style={styles.container}>
         <View style={styles.thongbaoview}>

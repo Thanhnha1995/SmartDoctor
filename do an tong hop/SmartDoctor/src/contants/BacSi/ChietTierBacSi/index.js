@@ -14,12 +14,24 @@ import {
   TouchableOpacity,
   FlatList
 } from "react-native";
+import { FirebaseApp } from "../../../config/Firebase";
 
 import styles from "./styles";
 export default class ChietTietBacSi extends Component {
   constructor(props) {
     super(props);
+    //chat
+    const { params } = this.props.navigation.state;
+    const { navigation } = this.props;
+    const iduser =params.iduser;
+    const hovaten = navigation.getParam("hovaten");
+    const ID = iduser;
+    var firebaseDB = FirebaseApp.database();
+    this.roomsRef = firebaseDB.ref(`rooms/${ID}`);
+    this.roomsRefs = firebaseDB.ref(`rooms`);
     this.state = {
+      rooms: [],
+      newRoom: hovaten,
       selectedStartDate: null,
       chonngay:[],
       datecanlay:'2019-07-01',
@@ -35,38 +47,63 @@ export default class ChietTietBacSi extends Component {
     const response =  await fetch(`${network}/bacsi/chitietbacsi.php?id=`+params.id);
 		const products = await response.json(); 
 		this.setState({data: products});
-	};
+  };
+  listenForRooms(roomsRefs) {
+    roomsRefs.on("value", dataSnapshot => {
+      var roomsFB = [];
+      dataSnapshot.forEach(child => {
+        roomsFB.push({
+          name: child.val().name,
+          key: child.key,
+        });
+      });
+      this.setState({ rooms: roomsFB });
+    });
+  }
+  
 	componentDidMount(){
+    this.listenForRooms(this.roomsRefs);
 		this.fetchData();
   }
 
-// tao phong chat
-async taophongchat(){
-  // const{idnguoidung,iddichvu,ngay,giatien,idca,mahdxn}=this.state;
-  const {navigate} = this.props.navigation;
+
+  addRoom() {
+    const { params } = this.props.navigation.state;
     const { navigation } = this.props;
-    const iduser = navigation.getParam('iduser');
-    const idbacsi = navigation.getParam('idbacsi');
-  const token = await getToken();
-  fetch(`${network}/phongchat/taophongchat.php`, {
-   
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      token,
-      idnguoidung:iduser,
-      idbacsi:idbacsi
-     
-    }),
-  });
-}
+    const iduser =params.iduser;
+    const chucvu = params.chucvu;
+    const hovaten = navigation.getParam("hovaten");
+    this.roomsRef.push({ name: this.state.newRoom });
+    this.setState({ newRoom: "" });
+  }
 
-
+  openMessages(room) {
+    const { params } = this.props.navigation.state;
+    const { navigation } = this.props;
+    const iduser = navigation.getParam("iduser");
+    const chucvu = params.chucvu;
+    const hovaten = navigation.getParam("hovaten");
+    this.props.navigation.navigate("Messages", {
+      roomKey: room.key,
+      roomName: room.name,
+    });
+  }
+  openMessagess() {
+    const { params } = this.props.navigation.state;
+    const { navigation } = this.props;
+    const iduser = navigation.getParam("iduser");
+    const hovaten = navigation.getParam("hovaten");
+    this.props.navigation.navigate("Messages", {
+      roomKey: iduser,
+      roomName: hovaten,
+    });
+  }
+  muntil() {
+    this.addRoom();
+    this.openMessagess();
+  }
   render() {
-  
+
     return (
       <View>
         <FlatList
@@ -152,9 +189,7 @@ async taophongchat(){
         <Text>{item.bangcapchungchi}</Text>
 </Card>
         </View>
-        <TouchableOpacity style={styles.btnketnoi}  onPress={() => {
-                this.props.navigation.navigate("Messages");
-              }}>
+        <TouchableOpacity style={styles.btnketnoi}  onPress={() => this.openMessages(item)}>
         <View>
         <Text style={styles.txtbtnketnoi}>KẾT NỐI</Text>
         </View>
