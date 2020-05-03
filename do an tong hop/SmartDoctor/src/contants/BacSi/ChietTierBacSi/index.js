@@ -21,9 +21,8 @@ export default class ChietTietBacSi extends Component {
   constructor(props) {
     super(props);
     //chat
-    const { params } = this.props.navigation.state;
     const { navigation } = this.props;
-    const iduser =params.iduser;
+    const iduser = navigation.getParam("iduser");
     const hovaten = navigation.getParam("hovaten");
     const ID = iduser;
     var firebaseDB = FirebaseApp.database();
@@ -35,8 +34,7 @@ export default class ChietTietBacSi extends Component {
       selectedStartDate: null,
       chonngay:[],
       datecanlay:'2019-07-01',
-    
-      // cac thong tin truyen len server
+    // cac thong tin truyen len server
       idnguoidung:'',
       idbacsi:'',
       data:[]
@@ -68,20 +66,16 @@ export default class ChietTietBacSi extends Component {
 
 
   addRoom() {
-    const { params } = this.props.navigation.state;
     const { navigation } = this.props;
-    const iduser =params.iduser;
-    const chucvu = params.chucvu;
+    const iduser = navigation.getParam("iduser");
     const hovaten = navigation.getParam("hovaten");
     this.roomsRef.push({ name: this.state.newRoom });
     this.setState({ newRoom: "" });
   }
 
   openMessages(room) {
-    const { params } = this.props.navigation.state;
     const { navigation } = this.props;
     const iduser = navigation.getParam("iduser");
-    const chucvu = params.chucvu;
     const hovaten = navigation.getParam("hovaten");
     this.props.navigation.navigate("Messages", {
       roomKey: room.key,
