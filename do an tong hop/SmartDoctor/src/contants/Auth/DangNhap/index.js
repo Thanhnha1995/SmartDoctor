@@ -156,16 +156,16 @@ export default class DangNhap extends Component {
                 onChangeText={this.handlePasswordChange}
                 showCheckmark={validPassword}
 
-                rightLabel={
-                  <Text
-                    paragraph
-                    color="gray"
-                    onPress={() => navigation.navigate('Forgot')}
+                // rightLabel={
+                //   <Text
+                //     paragraph
+                //     color="gray"
+                //     onPress={() => navigation.navigate('Forgot')}
                     
-                  >
-                    Quên mật khẩu?
-                  </Text>
-                }
+                //   >
+                //     Quên mật khẩu?
+                //   </Text>
+                // }
               />
               <NextArrowButton
               label="ĐĂNG NHẬP"

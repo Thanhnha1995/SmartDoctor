@@ -22,6 +22,11 @@ import ChiTietTinTuc from "../../contants/TinTuc/ChiTietTinTuc";
 import HomeThongBao from "../../contants/ThongBao/Home";
 import Messages from '../../contants/BacSi/Chat';
 import ThongBaoTuVanHoiDap from '../../contants/ThongBao/ThongBaoTuVanHoiDap';
+//Datlichxn 
+import Chonchucnang from '../../contants/Datlichxn/Chonchucnang';
+import Chonbenhvien from '../../contants/Datlichxn/Chonbenhvien';
+import Lichsuxetnghiem from '../../contants/Datlichxn/Lichsuxetnghiem';
+
 const TabNavigator = createBottomTabNavigator(
   {
     HomeApp: {
@@ -144,6 +149,27 @@ const RootStack = createStackNavigator(
     },
     Messages:{
       screen:Messages
+    },
+    DanhSachTinTuc:{
+      screen: DanhSachTinTuc
+    },
+    ChiTietTinTuc:{
+      screen: ChiTietTinTuc
+    },
+    LichSuCauHoi:{
+      screen: LichSuCauHoi
+    },
+    Chat:{
+      screen: Chat
+    },
+    ChonchucnangScreen:{
+      screen: Chonchucnang
+    },
+    ChonbenhvienScreen:{
+      screen: Chonbenhvien
+    },
+    LichsxetnghiemScreen:{
+      screen: Lichsuxetnghiem
     }
   },
   {

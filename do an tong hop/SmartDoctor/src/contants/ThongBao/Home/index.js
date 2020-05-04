@@ -35,7 +35,7 @@ export default class HomeThongBao extends Component {
       </TouchableOpacity>
         
       <TouchableOpacity onPress={() => {
-                this.props.navigation.navigate("DangKy");
+            this.props.navigation.navigate("DanhSachTinTuc");
               }} style={styles.dichvuform}>
         <View>
           <View style={styles.dichvu}>
