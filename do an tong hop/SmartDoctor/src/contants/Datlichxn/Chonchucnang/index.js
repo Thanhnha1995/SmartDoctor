@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Modal from "react-native-simple-modal";
 import { FontAwesome } from '@expo/vector-icons';
-
+import styles from "./styles";
 
 export default class Chonchucnang extends React.Component {
     constructor(props) {
@@ -46,58 +46,3 @@ export default class Chonchucnang extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#f0f6f6"
-    },
-    img: {
-        marginTop: 50,
-        alignSelf: 'center',
-        width: 150,
-        height: 150
-    },
-    txt: {
-
-
-        fontSize: 15
-    },
-    button: {
-        marginTop: 20,
-        alignSelf: 'center',
-        borderRadius: 50,
-        width: 350,
-        height: 50,
-        backgroundColor: '#47aedf'
-    },
-    txtbtn: {
-        marginTop: 10,
-        alignSelf: 'center',
-        fontSize: 15,
-        color: '#fff'
-    },
-    btndichvuphongkham: {
-        width: 50,
-        height: 50,
-        borderRadius: 100,
-        backgroundColor: "#47aedf",
-        alignSelf: 'center',
-        marginLeft: 10
-
-    },
-    btndichvubacsi: {
-        width: 50,
-        height: 50,
-        borderRadius: 100,
-        backgroundColor: "#47aedf",
-        alignSelf: 'center',
-        marginLeft: 10
-
-    },
-    iconchucnang: {
-        marginTop: 10,
-        alignSelf: 'center',
-        fontSize: 30,
-        color: '#fff'
-    }
-});
