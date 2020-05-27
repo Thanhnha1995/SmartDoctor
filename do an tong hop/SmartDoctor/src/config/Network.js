@@ -1,1 +1,1 @@
-export const network = 'http://localhost/apidoctor';
+export const network = 'http://demoapi.tk/apidoctor';
