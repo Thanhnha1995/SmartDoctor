@@ -5,12 +5,13 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import { network } from '../../../config/Network';
 import numeral from 'numeral';
-import styles from ".styles/styles";
-export default class Chitietxetnghiem extends React.Component {
+import styles from "./styles";
+export default class ChitietxetnghiemScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            chỉtietxenghiem: []
+            chỉtietxenghiem: [],
+            id:1
         }
     }
     fetchData = async () => {

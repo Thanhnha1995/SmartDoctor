@@ -11,7 +11,6 @@ const DsTinmoinhat = async (token) => {
        },       
   })
   .then(res => res.json(
-    console.log(res)
   ))
 
 };

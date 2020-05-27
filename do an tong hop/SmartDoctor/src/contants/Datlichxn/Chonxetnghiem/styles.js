@@ -1,7 +1,6 @@
+import { StyleSheet, Dimensions } from 'react-native';
 const imageWidth = width - 20;
 const imageHeight = (imageWidth / 150) * 150;
-const { width } = Dimensions.get("window");
-import { StyleSheet, Dimensions } from 'react-native';
 const { width } = Dimensions.get("window");
 export default styles = StyleSheet.create({
     container: {
@@ -54,5 +53,15 @@ export default styles = StyleSheet.create({
     imageStyle: {
         height: 100,
         width: 100
+    },
+    img: {
+        marginTop: 100,
+        alignSelf: 'center',
+        width: 220,
+        height: 200
+    },
+    txt: {
+        fontSize: 15,
+        alignSelf:'center'
     },
 });

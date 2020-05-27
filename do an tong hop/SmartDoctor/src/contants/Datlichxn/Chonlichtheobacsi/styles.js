@@ -1,6 +1,6 @@
 const imageWidth = width - 20;
 const imageHeight = (imageWidth / 150) * 150;
-import { StyleSheet } from 'react-native';
+import { StyleSheet ,Dimensions} from 'react-native';
 const { width } = Dimensions.get("window");
 export default styles = StyleSheet.create({
     container: {
@@ -8,7 +8,7 @@ export default styles = StyleSheet.create({
         backgroundColor: "#f0f6f6"
     },
     ngaykham: {
-        flex: 1 / 2
+        flex: 1 / 3
     },
     thoigiankham: {
         flex: 1
@@ -20,7 +20,7 @@ export default styles = StyleSheet.create({
         fontWeight: "bold"
     },
     wrapper: {
-        width: width - 10,
+        width: width - 20,
         backgroundColor: "#FFF",
         margin: 10,
         shadowColor: "#2E272B",
@@ -69,7 +69,6 @@ export default styles = StyleSheet.create({
         flex: 1,
     },
     viewchonthoigian: {
-        marginTop: 40,
         flex: 1 / 2,
     },
     wapperthoigian: {
@@ -150,5 +149,8 @@ export default styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 30,
         color: '#fff'
+    },
+    txtchonthoigian:{
+        fontWeight:'bold'
     }
 });

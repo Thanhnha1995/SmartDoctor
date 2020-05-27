@@ -5,10 +5,10 @@ export default styles = StyleSheet.create({
         backgroundColor: "#f0f6f6"
     },
     img: {
-        marginTop: 50,
+        marginTop: 100,
         alignSelf: 'center',
-        width: 150,
-        height: 150
+        width: 220,
+        height: 200
     },
     txt: {
 
@@ -26,7 +26,7 @@ export default styles = StyleSheet.create({
     txtbtn: {
         marginTop: 10,
         alignSelf: 'center',
-        fontSize: 15,
+        fontSize: 20,
         color: '#fff'
     },
     btndichvuphongkham: {

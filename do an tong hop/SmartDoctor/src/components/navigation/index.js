@@ -23,10 +23,14 @@ import HomeThongBao from "../../contants/ThongBao/Home";
 import Messages from '../../contants/BacSi/Chat';
 import ThongBaoTuVanHoiDap from '../../contants/ThongBao/ThongBaoTuVanHoiDap';
 //Datlichxn 
-import Chonchucnang from '../../contants/Datlichxn/Chonchucnang';
-import Chonbenhvien from '../../contants/Datlichxn/Chonbenhvien';
+import Chonchucnang from '../../contants/DatLichXetNghiem/Chonchucnang';
+import ChonBenhVienXN from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChonBenhVienXN';
+import ChonXetNghiemBV from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChonXetNghiemBV';
 import Lichsuxetnghiem from '../../contants/Datlichxn/Lichsuxetnghiem';
-
+import Chitietxetnghiem from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChiTietXetNghiem';
+import ChonlichScreen from '../../contants/Datlichxn/Chonlichtheobacsi';
+import ChonThoiGianXn from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChonThoiGianXn';
+import XacNhanThongTin from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanThongTin';
 const TabNavigator = createBottomTabNavigator(
   {
     HomeApp: {
@@ -165,12 +169,28 @@ const RootStack = createStackNavigator(
     ChonchucnangScreen:{
       screen: Chonchucnang
     },
-    ChonbenhvienScreen:{
-      screen: Chonbenhvien
-    },
     LichsxetnghiemScreen:{
       screen: Lichsuxetnghiem
+    },
+    ChonBenhVienXN:{
+      screen:ChonBenhVienXN
+    },
+    ChonXetNghiemBV:{
+      screen:ChonXetNghiemBV
+    },
+    Chitietxetnghiem:{
+      screen:Chitietxetnghiem
+    },
+    ChonlichScreen:{
+      screen:ChonlichScreen
+    },
+    ChonThoiGianXn:{
+      screen:ChonThoiGianXn
+    },
+    XacNhanThongTin:{
+      screen:XacNhanThongTin
     }
+
   },
   {
     mode: "modal",

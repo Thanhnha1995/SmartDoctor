@@ -11,11 +11,6 @@ export default class Chonchucnang extends React.Component {
             open: false
         }
     }
-
-
-
-
-
     render() {
         const { navigate } = this.props.navigation;
         const { navigation } = this.props;
@@ -33,11 +28,6 @@ export default class Chonchucnang extends React.Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('ChonbenhvienScreen', { iduser })}>
                     <View style={styles.button}>
                         <Text style={styles.txtbtn}> Đặt xét nghiệm/khám bệnh mới</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('LichsxetnghiemScreen', { iduser })}>
-                    <View style={styles.button}>
-                        <Text style={styles.txtbtn}> Lịch sử xét nghiệm/khám bệnh mới</Text>
                     </View>
                 </TouchableOpacity>
             </View>

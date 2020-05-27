@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar, FlatList, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { CirclesLoader, PulseLoader, TextLoader, DotsLoader, RippleLoader } from 'react-native-indicator';
 import { ListItem, SearchBar } from 'react-native-elements';
+import Loader from '../../../components/Loader';
 
 import { network } from '../../../config/Network';
-export default class ChonxetnghiemScreen extends React.Component {
+export default class ChonXetNghiemBV extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,14 +14,16 @@ export default class ChonxetnghiemScreen extends React.Component {
             id: 1,
             dataxetnghiemtheochuyenmuc: [],
             error: null,
-            isLoading: true,
+            loadingVisible: false,
 
         };
 
         this.arrayholder = [];
     }
     _onPressButton(item) {
+        
         this.setState({
+              loadingVisible: false,
             id: this.state.id = item.iddanhmuc,
 
         });
@@ -29,9 +32,11 @@ export default class ChonxetnghiemScreen extends React.Component {
     // lay xet nghiem theo danh muc
 
     fetchDataXetNghiem = async (item) => {
-        const response = await fetch(`${network}/datlichxetnghiem/xetnghiemtheodanhmuc.php?id=${this.state.id}`);
+
+        const response = await fetch(`${network}/datlich/xetnghiem/xetnghiemtheodanhmuc.php?id=${this.state.id}`);
         const xetnghiem = await response.json();
         this.setState({
+            loadingVisible:false,
 
             dataxetnghiemtheochuyenmuc: xetnghiem
         });
@@ -69,11 +74,11 @@ export default class ChonxetnghiemScreen extends React.Component {
 
     // api lay du lieu danh muc theo benh vien 
     fetchData = async () => {
+       
         const { params } = this.props.navigation.state;
-        const response = await fetch(`${network}/datlichxetnghiem/danhmuctheobenhvien.php?id=` + params.idbenhvien);
+        const response = await fetch(`${network}/datlich/xetnghiem/danhmuctheobenhvien.php?id=` + params.idbenhvien);
         const dsdanhmuc = await response.json();
         this.setState({
-            isLoading: false,
             danhmuc: dsdanhmuc
         });
     };
@@ -94,11 +99,18 @@ export default class ChonxetnghiemScreen extends React.Component {
         const diachibenhvien = navigation.getParam('diachibenhvien');
         const dienthoaibenhvien = navigation.getParam('dienthoaibenhvien');
         const tenbenhvien = navigation.getParam('tenbenhvien');
+        const {
+            loadingVisible
+          } = this.state;
+       
         return (
 
             <View style={styles.container}>
                 <StatusBar hidden />
-
+                <Loader
+          modalVisible={loadingVisible}
+          animationType="fade"
+        /> 
                 <View style={styles.timkiem}>
                     <SearchBar
                         containerStyle={styles.search}
@@ -136,7 +148,7 @@ export default class ChonxetnghiemScreen extends React.Component {
                         <TouchableOpacity
                             delayPressIn={70}
                             activeOpacity={0.8}
-                            onPress={() => navigate('ChitietxetnghiemScreen', { id: item.iddichvu, iduser, idbenhvien, diachibenhvien, dienthoaibenhvien, tenbenhvien })}
+                            onPress={() => navigate('Chitietxetnghiem', { id: item.iddichvu, iduser, idbenhvien, diachibenhvien, dienthoaibenhvien, tenbenhvien })}
                         >
 
                             <View style={styles.wrapper}>
@@ -178,3 +190,69 @@ export default class ChonxetnghiemScreen extends React.Component {
         );
     }
 }
+const imageWidth = width - 20;
+const imageHeight = (imageWidth / 150) * 150;
+const { width } = Dimensions.get("window");
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#f0f6f6"
+    },
+    timkiem: {
+        flex: 1 / 4,
+        backgroundColor: '#278efc'
+    },
+    noidung: {
+        flex: 1
+    },
+    search: {
+        marginTop: 20,
+        backgroundColor: '#278efc',
+        borderBottomColor: '#278efc',
+        borderTopColor: '#278efc',
+    },
+    txtdanhmuc: {
+        marginTop: 10
+    },
+    button: {
+
+        marginLeft: 20,
+        width: 100,
+        height: 50,
+        borderRadius: 20,
+        backgroundColor: '#4abed3'
+    },
+    txtchuyenkhoa: {
+        marginTop: 10,
+        flex: 1,
+        fontWeight: 'bold',
+        fontSize: 15,
+        alignSelf: 'center',
+        color: '#fff'
+    },
+    wrapper: {
+        width: width - 20,
+        backgroundColor: '#FFF',
+        margin: 10,
+        shadowColor: '#2E272B',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.2,
+        padding: 10,
+        paddingTop: 0,
+        flexDirection: 'row'
+    },
+    imageStyle: {
+        height: 100,
+        width: 100
+    },
+    img: {
+        marginTop: 100,
+        alignSelf: 'center',
+        width: 220,
+        height: 200
+    },
+    txt: {
+        fontSize: 15,
+        alignSelf:'center'
+    },
+});

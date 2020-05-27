@@ -23,11 +23,11 @@ export default class DangKy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    hovaten:" ",
+    hovaten:'',
 	  idgioitinh:"1",
 	  ngaysinh:"2020/05/01",
-	  diachi:" ",
-	  sodienthoai:"chua cap nhat",
+	  diachi:'',
+	  sodienthoai:"",
 	  nghenghiep:"chua cap nhat",
 	  socmnd:"chua cap nhat",
 	  masobnxh:"chua cap nhat",
@@ -116,6 +116,7 @@ export default class DangKy extends Component {
           email,
           matkhau)
         .then(res=>{
+          console.log(res)
           if(res.message ==="email va mat khau ton tai")
          {
             this.setState({ formValid: false, loadingVisible: false });

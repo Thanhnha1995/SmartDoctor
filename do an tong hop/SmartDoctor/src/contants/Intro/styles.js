@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import Color from "../../common/Color";
+
 export default styles = StyleSheet.create({
   mainContent: {
     flex: 1,
@@ -13,7 +13,7 @@ export default styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: Color.textintro,
+    color: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: "transparent",
     textAlign: "center",
     marginBottom: 40,

@@ -48,7 +48,6 @@ export default class HomeApp extends React.Component {
     getToken()
       .then((token) => checkLogin(token))
       .catch((error) => {
-        console.error(error);
       });
   }
   render() {
@@ -106,7 +105,7 @@ export default class HomeApp extends React.Component {
 
             <TouchableOpacity
               onPress={() =>
-                this.props.navigation.navigate("ChonchucnangScreen")
+                this.props.navigation.navigate("ChonchucnangScreen",{iduser})
               }
             >
               <View
