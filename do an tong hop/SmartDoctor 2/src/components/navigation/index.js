@@ -31,6 +31,7 @@ import Chitietxetnghiem from '../../contants/DatLichXetNghiem/Datlichxetnghiem/C
 import ChonlichScreen from '../../contants/Datlichxn/Chonlichtheobacsi';
 import ChonThoiGianXn from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChonThoiGianXn';
 import XacNhanThongTin from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanThongTin';
+import ThongTinCaNhan from "../../contants/Auth/HoSo";
 const TabNavigator = createBottomTabNavigator(
   {
     HomeApp: {
@@ -189,6 +190,9 @@ const RootStack = createStackNavigator(
     },
     XacNhanThongTin:{
       screen:XacNhanThongTin
+    },
+    ThongTinCaNhan:{
+      screen:ThongTinCaNhan
     }
 
   },

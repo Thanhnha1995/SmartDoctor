@@ -11,7 +11,6 @@ const ListBlog = async (token) => {
        },       
   })
   .then(res => res.json(
-    // Console.lgg(res)
   ))
 
 };

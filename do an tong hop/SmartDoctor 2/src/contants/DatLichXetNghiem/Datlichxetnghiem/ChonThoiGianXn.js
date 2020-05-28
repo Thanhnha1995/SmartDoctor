@@ -73,9 +73,9 @@ export default class ChonThoiGianXn extends React.Component {
         const token = await getToken();
 
         //mahdxn
-        var RandomNumber = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        var RandomNumber =Math.floor(100000 + Math.random() * 900000);
         this.setState({
-            mahdxn: RandomNumber
+            ma: RandomNumber
         })
         fetch(`${network}/datlich/xetnghiem/datlich.php`, {
 
@@ -91,7 +91,9 @@ export default class ChonThoiGianXn extends React.Component {
                 ngay: startDate,
                 giatien: gt,
                 idca: this.state.value,
-                mahdxn: this.state.mahdxn,
+                idbenhvien:idbenhvien,
+                idbacsi:'',
+                mahdxn: this.state.ma,
                 idtrangthailichkham: 1,
             }),
         });
@@ -120,9 +122,33 @@ export default class ChonThoiGianXn extends React.Component {
     };
 
     chuyentrang() {
+        var RandomNumber =Math.floor(100000 + Math.random() * 900000);
+        this.setState({
+            ma: RandomNumber
+        })
+        const { navigation } = this.props;
+        const { params } = this.props.navigation.state;
+        const { selectedStartDate } = this.state;
+        const startDate = selectedStartDate ? selectedStartDate.format('YYYY-MM-DD') : '';
+        const tenbenhvien = navigation.getParam('tenbenhvien');
+        const diachibenhvien = navigation.getParam('diachibenhvien');
+        const dienthoaibenhvien = navigation.getParam('dienthoaibenhvien');
+        const tenxetnghiem = navigation.getParam('tenxetnghiem');
+        const giatien = navigation.getParam('giatien');
+        const mahdxn= this.state.ma;
+       
         this.datlichxetnghiem();
 
-        this.props.navigation.navigate('XacNhanThongTin')
+        this.props.navigation.navigate('XacNhanThongTin',{
+            tenbenhvien,
+            diachibenhvien,
+            dienthoaibenhvien,
+            tenxetnghiem,
+            giatien,
+            ngay:startDate,
+            mahdxn:RandomNumber
+
+        })
     }
     componentDidUpdate() {
 
@@ -141,8 +167,9 @@ export default class ChonThoiGianXn extends React.Component {
         const { navigation } = this.props;
         const { params } = this.props.navigation.state;
         const iduser = navigation.getParam('iduser');
-        const iddv = params.iddv;
+        const iddv = navigation.getParam('iddv');
         const idbenhvien = navigation.getParam('idbenhvien');
+
         const BLUE = "#2196F3";
         const WHITE = "#FFFFFF";
         const GREY = "#BDBDBD";

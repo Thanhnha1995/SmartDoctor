@@ -13,7 +13,6 @@ export default class XacNhanThongTin extends React.Component {
           ngay:'',
           giatien:'',
           idca:'',
-          mahdxn:'',
           idbenhvien:""
         }
     }
@@ -30,7 +29,7 @@ export default class XacNhanThongTin extends React.Component {
         const ca = navigation.getParam('ca');
         const tenbenhvien = navigation.getParam('tenbenhvien');
         const giatien = navigation.getParam('giatien');
-
+        const mahdxn = navigation.getParam('mahdxn');
         return (
             <View style={styles.container}>
              <StatusBar hidden />
@@ -47,7 +46,16 @@ export default class XacNhanThongTin extends React.Component {
                     <Text style={{ color: "#fff", fontSize: 15 }}>
                       Vui lòng đừng quên!             
                     </Text>
+                    <Text
+                    style={{
+                      alignSelf:'center',
+                      fontSize:20,
+                      color:'white',
+                      fontWeight:'bold'
+                    }}
+                  ># {mahdxn}</Text>
                   </View>
+                
                 </View>
               </View>
       <View style={styles.viewthongtin}>
@@ -81,18 +89,13 @@ export default class XacNhanThongTin extends React.Component {
                 </Text>
                 </View>
                 </View>
-                <View style={styles.wrapper}>
-                <Text style={[styles.label, {color:'#26608e'}]}>Bác sĩ thực hiện</Text>
-                  <Text style={styles.texttieude}></Text>
-                </View>
+          
               </View>
-          <TouchableOpacity  onPress={()=>this.muntil()} style={styles.viewxacnhan}>
+          <TouchableOpacity  onPress={()=>this.props.navigation.navigate("HomeApp")} style={styles.viewxacnhan}>
           <View>
               <Text style={styles.hoanthanh}>HOÀN THÀNH</Text>
               </View>
-</TouchableOpacity>
-           
-            
+</TouchableOpacity>         
             </View>
           );
         }

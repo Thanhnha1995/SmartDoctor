@@ -137,7 +137,7 @@ export default class HomeApp extends React.Component {
 
             <TouchableOpacity
               onPress={() =>
-                this.props.navigation.navigate("DanhsachcauhoiScreen")
+                this.props.navigation.navigate("ThongTinCaNhan",{iduser})
               }
             >
               <View

@@ -148,7 +148,14 @@ export default class ChonXetNghiemBV extends React.Component {
                         <TouchableOpacity
                             delayPressIn={70}
                             activeOpacity={0.8}
-                            onPress={() => navigate('Chitietxetnghiem', { id: item.iddichvu, iduser, idbenhvien, diachibenhvien, dienthoaibenhvien, tenbenhvien })}
+                            onPress={() => navigate('Chitietxetnghiem', { 
+                                id: item.iddichvu, 
+                                iduser, 
+                                idbenhvien, 
+                                diachibenhvien, 
+                                dienthoaibenhvien, 
+                                tenbenhvien
+                             })}
                         >
 
                             <View style={styles.wrapper}>
