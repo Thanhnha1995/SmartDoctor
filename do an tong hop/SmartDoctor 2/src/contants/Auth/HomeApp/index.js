@@ -57,6 +57,7 @@ export default class HomeApp extends React.Component {
     const hovaten = params.name;
     const hinhanh = params.hinhanh;
     const chucvu = params.chucvu;
+    const sodienthoai= params.sodienthoai;
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -105,7 +106,7 @@ export default class HomeApp extends React.Component {
 
             <TouchableOpacity
               onPress={() =>
-                this.props.navigation.navigate("ChonchucnangScreen",{iduser})
+                this.props.navigation.navigate("ChonchucnangScreen",{iduser, sodienthoai})
               }
             >
               <View
@@ -152,80 +153,57 @@ export default class HomeApp extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-        <Text style={{ alignSelf: "center", fontSize: 20, marginBottom: 10 }}>
-          Tin Tức
-        </Text>
+        <Text style={{alignSelf:'center', fontSize:20, marginBottom:10}}>Tin Tức</Text>
+    
+    <View style={[ styles.tintuc ]}>
+    
+    <FlatList
+        keyExtractor={item => item.Id}
+       style={styles.container}
+        data={this.state.dataSource}
+        onEndReachedThreshold="-0.2"
+        renderItem={({item}) => 
+        <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => navigate('DetailsBlogScreen', { id: item.id })}>
 
-        <View style={[styles.tintuc]}>
-          <FlatList
-            keyExtractor={(item) => item.Id}
-            style={styles.container}
-            data={this.state.dataSource}
-            onEndReachedThreshold="-0.2"
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                delayPressIn={70}
-                activeOpacity={0.8}
-                onPress={() => navigate("DetailsBlogScreen", { id: item.id })}
-              >
-                <View activeOpacity={0.9}>
-                  <ImageBackground
-                    style={[styles.flex, styles.destination, styles.shadow]}
-                    imageStyle={{ borderRadius: theme.sizes.radius }}
-                    source={{ uri: `${network}/images/tintuc/` + item.hinhanh }}
-                  ></ImageBackground>
-                  <View
-                    style={[
-                      styles.column,
-                      styles.destinationInfo,
-                      styles.shadow,
-                    ]}
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={{
-                        fontSize: theme.sizes.font * 1.25,
-                        fontWeight: "500",
-                        paddingBottom: 8,
-                      }}
-                    >
-                      {item.tentintuc}
-                    </Text>
-                    <View
-                      style={[
-                        styles.row,
-                        {
-                          justifyContent: "space-between",
-                          alignItems: "flex-end",
-                        },
-                      ]}
-                    >
-                      <View
-                        numberOfLines={2}
-                        style={{ color: theme.colors.caption }}
-                      >
-                        <WebView source={{ html: item.Noidung }} />
-                      </View>
-                      <FontAwesome
-                        name="chevron-right"
-                        size={theme.sizes.font * 0.75}
-                        color={theme.colors.caption}
-                      />
-                    </View>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            )}
+<View activeOpacity={0.9}>
+    <ImageBackground
+      style={[styles.flex, styles.destination, styles.shadow]}
+      imageStyle={{ borderRadius: theme.sizes.radius }}
+      source={{uri: `${network}/images/tintuc/`+item.hinhanh}}
+    >   
+    </ImageBackground>
+      <View style={[styles.column, styles.destinationInfo, styles.shadow]}>
+        <Text numberOfLines={1} style={{ fontSize: theme.sizes.font * 1.25, fontWeight: '500', paddingBottom: 8, }}>
+         {item.tentintuc}
+        </Text>
+        <View style={[ styles.row, { justifyContent: 'space-between', alignItems: 'flex-end', }]}>
+          <View numberOfLines={2} style={{ color: theme.colors.caption }}>
+          <WebView source={{html: item.Noidung}} />
+
+          </View>
+          <FontAwesome
+            name="chevron-right"
+            size={theme.sizes.font * 0.75}
+            color={theme.colors.caption}
           />
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("BlogScreen")}
-          >
-            <View style={styles.xemtatcacontainer}>
-              <Text style={styles.xemtatca}> Xem tất cả</Text>
-            </View>
-          </TouchableOpacity>
         </View>
-      </ScrollView>
+      </View>
+  </View>
+  </TouchableOpacity>
+  }/> 
+  <TouchableOpacity  onPress={() => this.props.navigation.navigate('DanhSachTinTuc')}>
+  <View style={styles.xemtatcacontainer}>
+
+<Text style={styles.xemtatca}> Xem tất cả</Text>
+</View>
+</TouchableOpacity>
+  
+  </View>
+
+    </ScrollView>
     );
   }
 }

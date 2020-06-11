@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { Card } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
+import Loader from '../../../components/Loader';
 
 import { network } from "../../../config/Network";
 import numeral from "numeral";
@@ -21,15 +22,20 @@ export default class Chitietxetnghiem extends React.Component {
     this.state = {
       chỉtietxenghiem: [],
       id: 1,
+      loadingVisible: false
     };
   }
   fetchData = async () => {
+    this.setState({ loadingVisible: true });
+
     const { params } = this.props.navigation.state;
     const response = await fetch(
       `${network}/datlich/xetnghiem/chitietxetnghiem.php?id=` + params.id
     );
     const details = await response.json();
-    this.setState({ chỉtietxenghiem: details });
+    this.setState({ chỉtietxenghiem: details,
+      loadingVisible: false
+     });
   };
 
   componentDidMount() {
@@ -44,12 +50,20 @@ export default class Chitietxetnghiem extends React.Component {
     const diachibenhvien = navigation.getParam('diachibenhvien');
     const dienthoaibenhvien = navigation.getParam('dienthoaibenhvien');
     const tenbenhvien = navigation.getParam('tenbenhvien');
+    const sodienthoai = navigation.getParam('sodienthoai');
+    const {
+      loadingVisible
+    } = this.state;
     return (
       <FlatList
         keyExtractor={(item) => String(item.Id)}
         data={this.state.chỉtietxenghiem}
         renderItem={({ item }) => (
           <View style={styles.container}>
+                         <Loader
+          modalVisible={loadingVisible}
+          animationType="fade"
+        /> 
             <View style={{ flex: 1 }}>
               <View style={styles.thongtindichvu}>
                 <Card>
@@ -164,6 +178,7 @@ export default class Chitietxetnghiem extends React.Component {
                     diachibenhvien,
                     dienthoaibenhvien,
                     tenbenhvien,
+                    sodienthoai
                   })
                 }
               >

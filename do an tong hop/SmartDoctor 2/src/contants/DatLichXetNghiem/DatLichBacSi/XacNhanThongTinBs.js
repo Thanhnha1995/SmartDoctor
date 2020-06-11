@@ -13,7 +13,7 @@ const { width } = Dimensions.get("window");
 import { network } from "../../../config/Network";
 import getToken from "../../../Api/Token/GetToken";
 import numeral from "numeral";
-export default class XacNhanThongTin extends React.Component {
+export default class XacNhanThongTinBs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +64,7 @@ export default class XacNhanThongTin extends React.Component {
   }
   chuyentrang() {
     this.datlichxetnghiem();
-    this.props.navigation.navigate("XacNhanHoanThanh");
+    this.props.navigation.navigate("XacNhanHoanThanhBs");
   }
   render() {
     const { navigation } = this.props;
@@ -76,6 +76,8 @@ export default class XacNhanThongTin extends React.Component {
     const ngay = navigation.getParam("ngay");
     const ca = navigation.getParam("ca");
     const tenbenhvien = navigation.getParam("tenbenhvien");
+    const tenchuyenkhoa = navigation.getParam("tenchuyenkhoa");
+    const tenbacsi = navigation.getParam("tenbacsi");
     const giatien = navigation.getParam("giatien");
     const mahdxn = navigation.getParam("mahdxn");
 
@@ -90,7 +92,7 @@ export default class XacNhanThongTin extends React.Component {
             />
             <View style={{ marginTop: 20, flex: 1 }}>
               <Text style={{ color: "#fff", fontSize: 15 }}>
-                Dịch vụ của bạn
+               Thông tin đặt lịc bác sĩ 
               </Text>
               <Text style={{ color: "#fff", fontSize: 15 }}>
                 Vui lòng đừng quên!
@@ -117,7 +119,6 @@ export default class XacNhanThongTin extends React.Component {
               {tenbenhvien}
             </Text>
             <View style={{ flexDirection: "column", marginLeft: 20 }}>
-              <Text style={[styles.texttieude, { marginTop: 10 }]}>{ngay}</Text>
             </View>
             <View style={{ borderBottomWidth: 0.5 }}></View>
             <Text style={[styles.texttieude, { marginTop: 10 }]}>
@@ -127,11 +128,11 @@ export default class XacNhanThongTin extends React.Component {
           </View>
           <View style={styles.wrapper}>
             <Text style={[styles.label, { color: "#4b7319" }]}>
-              Các dịch vụ thưc hiện
+              Thông tin lịch khám
             </Text>
             <View style={{ flexDirection: "row" }}>
               <Text style={[styles.texttieude, { marginTop: 10 }]}>
-                {tenxetnghiem}
+                Ngày đặt lịch khám :{ngay}
               </Text>
               <Text
                 style={[
@@ -139,9 +140,24 @@ export default class XacNhanThongTin extends React.Component {
                   { color: "#26608e", fontSize: 15, marginLeft: "15%" },
                 ]}
               >
-                {numeral(giatien).format("1,234")}
+         
               </Text>
             </View>
+          </View>
+          <View style={styles.wrapper}>
+            <Text style={[styles.label, { color: "#4b7319" }]}>
+            Thông tin bác sĩ
+            </Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={[styles.texttieude, { marginTop: 10 }]}>
+                Họ và tên bác sĩ :{tenbacsi}
+              </Text>
+
+     
+            </View>
+            <Text style={[styles.texttieude, { marginTop: 10 }]}>
+                Chuyên khoa :{tenchuyenkhoa}
+              </Text>
           </View>
         </View>
         <TouchableOpacity

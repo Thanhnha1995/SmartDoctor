@@ -63,8 +63,8 @@ export default class ChonBenhVienXN extends React.Component {
     }
 
     makeRemoteRequest = () => {
+        this.setState({ loadingVisible: true });
         const url = `${network}/datlich/xetnghiem/dsbenhvien.php`;
-        this.setState({ loading: false });
 
         fetch(url)
             .then(res => res.json())
@@ -73,7 +73,7 @@ export default class ChonBenhVienXN extends React.Component {
                     isLoading: false,
                     data: res,
                     error: res.error || null,
-                    loading: false
+                    loadingVisible: false
                 });
                 this.arrayholder = res;
             })
@@ -113,11 +113,18 @@ export default class ChonBenhVienXN extends React.Component {
         const { navigate } = this.props.navigation;
         const { navigation } = this.props;
         const iduser = navigation.getParam('iduser');
+        const sodienthoai = navigation.getParam('sodienthoai');
+        const {
+            loadingVisible
+          } = this.state;
         return (
        
                 <View style={styles.container}>
                     <StatusBar hidden />
-       
+                    <Loader
+          modalVisible={loadingVisible}
+          animationType="fade"
+        /> 
                     <View style={styles.viewtimkiem}>
                         <SearchBar
                             containerStyle={styles.search}
@@ -143,7 +150,8 @@ export default class ChonBenhVienXN extends React.Component {
                                             iduser,
                                             diachibenhvien: item.diachi,
                                             dienthoaibenhvien: item.dienthoai,
-                                            tenbenhvien: item.tenbenhvien
+                                            tenbenhvien: item.tenbenhvien,
+                                            sodienthoai
                                         })
                                     }
                                 >

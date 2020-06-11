@@ -61,6 +61,7 @@ export default class DangNhap extends Component {
           hinhanh:res.user.hinhanh,
           chucvu:res.user.chucvu,
           hovaten:res.user.hovaten, 
+          sodienthoai:res.user.sodienthoai
         }),
         this.setState({ formValid: true, loadingVisible: false })
        )}})}

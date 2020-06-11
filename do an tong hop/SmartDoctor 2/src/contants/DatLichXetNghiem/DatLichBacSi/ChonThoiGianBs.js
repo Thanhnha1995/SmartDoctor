@@ -22,7 +22,7 @@ import Datlichxn from "../../../Api/Datlichxn/Datlichxn";
 import Modal from "react-native-simple-modal";
 import { FontAwesome } from "@expo/vector-icons";
 import { network } from "../../../config/Network";
-export default class ChonThoiGianXn extends React.Component {
+export default class ChonThoiGianBs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -122,7 +122,7 @@ export default class ChonThoiGianXn extends React.Component {
     const iddv = navigation.getParam("iddv");
     const idbenhvien = navigation.getParam("idbenhvien");
     const response = await fetch(
-      `${network}/datlich/xetnghiem/thoigianxetnghiem.php?ngay="${startDate}"&iddichvu="${iddv}"`
+      `${network}/datlichbacsi/thoigianxetnghiembacsi.php?ngay="${startDate}"&idbacsi="${idbacsi}"`
     );
     const datlichs = await response.json();
     this.setState({
@@ -190,7 +190,9 @@ const idca= this.state.value;
     const dienthoaibenhvien = navigation.getParam("dienthoaibenhvien");
     const tenxetnghiem = navigation.getParam("tenxetnghiem");
     const giatien = navigation.getParam("giatien");
-
+    const idbacsi = navigation.getParam("idbacsi");
+    const tenbacsi = navigation.getParam("tenbacsi");
+    const tenchuyenkhoa = navigation.getParam("tenchuyenkhoa");
     const BLUE = "#2196F3";
     const WHITE = "#FFFFFF";
     const GREY = "#BDBDBD";
@@ -259,10 +261,10 @@ const idca= this.state.value;
           <TouchableOpacity
           style={styles.viewxacnhan}
           onPress={() =>
-            this.props.navigation.navigate("XacNhanOtp", {
+            this.props.navigation.navigate("NhapOtpBs", {
               iduser,
               idthoigian,
-              iddv,
+              idbacsi,
               gt,
               idbenhvien,
               sodienthoai,
@@ -273,6 +275,8 @@ const idca= this.state.value;
               giatien,
               idca,
               ngay: startDate,
+              tenchuyenkhoa,
+              tenbacsi
             })
           }
         >

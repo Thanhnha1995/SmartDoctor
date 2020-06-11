@@ -32,6 +32,17 @@ import ChonlichScreen from '../../contants/Datlichxn/Chonlichtheobacsi';
 import ChonThoiGianXn from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChonThoiGianXn';
 import XacNhanThongTin from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanThongTin';
 import ThongTinCaNhan from "../../contants/Auth/HoSo";
+import XacNhanOtp from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanOtp'
+import NhapMaOtp from '../../contants/DatLichXetNghiem/Datlichxetnghiem/NhapMaOtp'
+import XacNhanHoanThanh from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanHoanThanh'
+import ChonBenhVienBacSi from '../../contants/DatLichXetNghiem/DatLichBacSi/ChonBenhVienBacSi'
+import ChonBacSiBs from '../../contants/DatLichXetNghiem/DatLichBacSi/ChonBacSiBs'
+import ChiTietBacSiBS from '../../contants/DatLichXetNghiem/DatLichBacSi/ChiTietBacSiBS'
+import ChonThoiGianBs from '../../contants/DatLichXetNghiem/DatLichBacSi/ChonThoiGianBs';
+import ThongTinLich from '../../contants/DatLichXetNghiem/DatLichBacSi/ThongTinLich'
+import NhapOtpBs from '../../contants/DatLichXetNghiem/DatLichBacSi/NhapOtpBs'
+import XacNhanThongTinBs from '../../contants/DatLichXetNghiem/DatLichBacSi/XacNhanThongTinBs'
+import XacNhanHoanThanhBs from '../../contants/DatLichXetNghiem/DatLichBacSi/XacNhanHoanThanhBs'
 const TabNavigator = createBottomTabNavigator(
   {
     HomeApp: {
@@ -115,90 +126,236 @@ const RootStack = createStackNavigator(
   {
     Init: {
       screen: StartUpScreen,
+      navigationOptions:{
+        headerShown: false
+      }
     },
     Intro: {
       screen: Intro,
+      navigationOptions:{
+        header: null,    
+      }
     },
     HomeDangNhap: {
       screen: HomeDangNhap,
+      navigationOptions:{
+        header: null,    
+      }
     },
     DangKy: {
       screen: DangKy,
+      navigationOptions:{
+        header: null,    
+      }
     },
     DangNhap: {
       screen: DangNhap,
+      navigationOptions:{
+        header: null,    
+      }
     },
     HomeApp: {
       screen: TAB,
+      navigationOptions:{
+        header: null,    
+      }
     },
     DanhSachCauHoi: {
       screen: DanhSachCauHoi,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChiTietCauHoi: {
       screen: ChiTietCauHoi,
+      navigationOptions:{
+        header: null,    
+      }
     },
     DatCauHoi: {
       screen: DatCauHoi,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ThongBaoTuVanHoiDap:{
-      screen:ThongBaoTuVanHoiDap
+      screen:ThongBaoTuVanHoiDap,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ThongBaoThanhCong:{
-      screen:ThongBaoThanhCong
+      screen:ThongBaoThanhCong,
+      navigationOptions:{
+        header: null,    
+      }
     },
     DanhsachBacSi:{
-      screen:DanhsachBacSi
+      screen:DanhsachBacSi,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChietTietBacSi:{
-      screen:ChietTietBacSi
+      screen:ChietTietBacSi,
+      navigationOptions:{
+        header: null,    
+      }
     },
     Messages:{
-      screen:Messages
+      screen:Messages,
+      navigationOptions:{
+        header: null,    
+      }
     },
     DanhSachTinTuc:{
-      screen: DanhSachTinTuc
+      screen: DanhSachTinTuc,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChiTietTinTuc:{
-      screen: ChiTietTinTuc
+      screen: ChiTietTinTuc,
+      navigationOptions:{
+        header: null,    
+      }
     },
     LichSuCauHoi:{
-      screen: LichSuCauHoi
+      screen: LichSuCauHoi,
+      navigationOptions:{
+        header: null,    
+      }
     },
     Chat:{
-      screen: Chat
+      screen: Chat,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChonchucnangScreen:{
-      screen: Chonchucnang
+      screen: Chonchucnang,
+      navigationOptions:{
+        header: null,    
+      }
     },
     LichsxetnghiemScreen:{
-      screen: Lichsuxetnghiem
+      screen: Lichsuxetnghiem,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChonBenhVienXN:{
-      screen:ChonBenhVienXN
+      screen:ChonBenhVienXN,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChonXetNghiemBV:{
-      screen:ChonXetNghiemBV
+      screen:ChonXetNghiemBV,
+      navigationOptions:{
+        header: null,    
+      }
     },
     Chitietxetnghiem:{
-      screen:Chitietxetnghiem
+      screen:Chitietxetnghiem,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChonlichScreen:{
-      screen:ChonlichScreen
+      screen:ChonlichScreen,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ChonThoiGianXn:{
-      screen:ChonThoiGianXn
+      screen:ChonThoiGianXn,
+      navigationOptions:{
+        header: null,    
+      }
     },
     XacNhanThongTin:{
-      screen:XacNhanThongTin
+      screen:XacNhanThongTin,
+      navigationOptions:{
+        header: null,    
+      }
     },
     ThongTinCaNhan:{
-      screen:ThongTinCaNhan
+      screen:ThongTinCaNhan,
+      navigationOptions:{
+        header: null,    
+      }
+    },
+    XacNhanOtp:{
+      screen:XacNhanOtp,
+      navigationOptions:{
+        header: null,    
+      }
+    },
+    NhapMaOtp:{
+      screen:NhapMaOtp,
+      navigationOptions:{
+        header: null,    
+      }
+    },
+    XacNhanHoanThanh:{
+      screen:XacNhanHoanThanh,
+      navigationOptions:{
+        header: null,    
+      }
+    },
+    ChonBenhVienBacSi:{
+      screen:ChonBenhVienBacSi,
+      navigationOptions:{
+        title:"Chọn bệnh viện"
+      }
+    },
+    ChonBacSiBs:{
+      screen:ChonBacSiBs,
+      navigationOptions:{
+        title:"Chọn bác sĩ"
+      }
+    },
+    ChiTietBacSiBS:{
+      screen:ChiTietBacSiBS,
+      navigationOptions:{
+        title:"Thông tin bác sĩ"
+      }
+    },
+    ChonThoiGianBs:{
+      screen:ChonThoiGianBs,
+      navigationOptions:{
+        title:"Chọn ngày"
+      }
+    },
+    ThongTinLich:{
+      screen:ThongTinLich,
+      navigationOptions:{
+        title:"Chọn lịch khám"
+      }
+    },
+    NhapOtpBs:{
+      screen:NhapOtpBs,
+      navigationOptions:{
+        title:"Xác thực Otp"
+      }
+    },
+    XacNhanThongTinBs:{
+      screen:XacNhanThongTinBs,
+      navigationOptions:{
+        title:"Xác nhận thông tin"
+      }
+    },
+    XacNhanHoanThanhBs:{
+      screen:XacNhanHoanThanhBs,
+      navigationOptions:{
+        header: null,    
+      }
     }
 
   },
   {
     mode: "modal",
-    headerMode: "none",
   }
 );
 
