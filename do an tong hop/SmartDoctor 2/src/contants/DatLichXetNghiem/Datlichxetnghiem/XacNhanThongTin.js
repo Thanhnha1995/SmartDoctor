@@ -55,10 +55,10 @@ export default class XacNhanThongTin extends React.Component {
         iddichvu: iddv,
         ngay: ngay,
         giatien: giatien,
-        idca: '1111',
-        idbenhvien: '11',
-        mahdxn: '11111',
-        idtrangthailichkham: 1,
+        idca: idca,
+        idbenhvien:idbenhvien,
+        mahdxn: this.state.ma,
+        idtrangthailichkham: 2,
       }),
     });
   }
@@ -145,7 +145,7 @@ export default class XacNhanThongTin extends React.Component {
           </View>
         </View>
         <TouchableOpacity
-          onPress={() => this.chuyentrang()}
+          onPress={() => this.datlichxetnghiem()}
           style={styles.viewxacnhan}
         >
           <View>

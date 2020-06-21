@@ -43,6 +43,11 @@ import ThongTinLich from '../../contants/DatLichXetNghiem/DatLichBacSi/ThongTinL
 import NhapOtpBs from '../../contants/DatLichXetNghiem/DatLichBacSi/NhapOtpBs'
 import XacNhanThongTinBs from '../../contants/DatLichXetNghiem/DatLichBacSi/XacNhanThongTinBs'
 import XacNhanHoanThanhBs from '../../contants/DatLichXetNghiem/DatLichBacSi/XacNhanHoanThanhBs'
+import ChiTietThongBaoTuVanHoiDap from '../../contants/ThongBao/ChiTietThongBaoTuVanHoiDap'
+import ChiTietDonxetnghiem from '../../contants/ThongBao/ChiTietDonxetnghiem'
+import Donxetnghiem from '../../contants/ThongBao/Donxetnghiem'
+import DanhSachLichHenBs from '../../contants/ThongBao/DanhSachLichHenBs'
+import ChitTietDanhSachLichHenBs from '../../contants/ThongBao/ChitTietDanhSachLichHenBs'
 const TabNavigator = createBottomTabNavigator(
   {
     HomeApp: {
@@ -350,6 +355,36 @@ const RootStack = createStackNavigator(
       screen:XacNhanHoanThanhBs,
       navigationOptions:{
         header: null,    
+      }
+    },
+    ChiTietThongBaoTuVanHoiDap:{
+      screen:ChiTietThongBaoTuVanHoiDap,
+      navigationOptions:{
+        title:"Bác sĩ trả lời"
+      }
+    },
+    Donxetnghiem:{
+      screen:Donxetnghiem,
+      navigationOptions:{
+        title:"Đơn xét nghiệm"
+      }
+    },
+    ChiTietDonxetnghiem:{
+      screen:ChiTietDonxetnghiem,
+      navigationOptions:{
+        title:"Chi tiết xét nghiệm"  
+      }
+    },
+    DanhSachLichHenBs:{
+      screen:DanhSachLichHenBs,
+      navigationOptions:{
+        title:"Danh sách lịch hẹn bác sĩ"  
+      }
+    },
+    ChitTietDanhSachLichHenBs:{
+      screen:ChitTietDanhSachLichHenBs,
+      navigationOptions:{
+        title:"Thông tin lịch hẹn Bác sĩ"  
       }
     }
 

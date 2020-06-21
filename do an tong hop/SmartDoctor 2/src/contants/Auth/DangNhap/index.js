@@ -6,7 +6,8 @@ import {
   KeyboardAvoidingView, 
   Dimensions,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 import {Color, Images, Lang } from "@Common";
 import Text from '../../../components/Text';
@@ -17,6 +18,7 @@ import Notification from '../../../components/Notification';
 import Loader from '../../../components/Loader';
 import LogIn from '../../../Api/Auth/SignIn';
 import SaveToken from '../../../Api/Token/SaveToken';
+import SaveIdUser from '../../../Api/Token/SaveIdUser';
 import {FirebaseApp} from '../../../config/Firebase';
 export default class DangNhap extends Component {
  
@@ -51,6 +53,7 @@ export default class DangNhap extends Component {
        }
        else {
         SaveToken(res.token),
+        SaveIdUser(res.user.idnguoidung);
         FirebaseApp.auth()
         .signInWithEmailAndPassword(this.state.email, this.state.matkhau)    
        this.setState(
@@ -61,7 +64,8 @@ export default class DangNhap extends Component {
           hinhanh:res.user.hinhanh,
           chucvu:res.user.chucvu,
           hovaten:res.user.hovaten, 
-          sodienthoai:res.user.sodienthoai
+          sodienthoai:res.user.sodienthoai,
+          
         }),
         this.setState({ formValid: true, loadingVisible: false })
        )}})}

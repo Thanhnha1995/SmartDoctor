@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, StyleSheet, Text,Dimensions } from "react-native";
+import { View, Image, StyleSheet, Text,Dimensions,AsyncStorage } from "react-native";
 import { Images } from "@Common";
 import { FontAwesome } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -8,7 +8,6 @@ export default class HomeThongBao extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { params } = this.props.navigation.state;
-    const iduser = params.iduser;
     return (
       <View style={styles.container}>
         <View style={styles.thongbaoview}>
@@ -17,7 +16,7 @@ export default class HomeThongBao extends Component {
 
         <View syle={styles.view}>
       <TouchableOpacity onPress={() => {
-                this.props.navigation.navigate("ThongBaoTuVanHoiDap",{iduser});
+                this.props.navigation.navigate("ThongBaoTuVanHoiDap");
               }} style={styles.dichvuform}>
       <View>
           <View style={styles.dichvu}>
@@ -33,6 +32,42 @@ export default class HomeThongBao extends Component {
         </View>
 
       </TouchableOpacity>
+
+
+      <TouchableOpacity onPress={() => {
+            this.props.navigation.navigate("Donxetnghiem");
+              }} style={styles.dichvuform}>
+        <View>
+          <View style={styles.dichvu}>
+            <FontAwesome
+              name={"flask"}
+              style={{ fontSize: 40, color: "#4995cd" }}
+            />
+            <Text style={{ marginLeft: 20, fontSize: 15 }}>Đơn xét nghiệm</Text>
+          </View>
+          <Text style={{ marginLeft: 70, fontSize: 15, color: "gray" }}>
+          Quản lý các đơn đăng ký xét nghiệm
+          </Text>
+        </View>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity onPress={() => {
+            this.props.navigation.navigate("DanhSachLichHenBs");
+              }} style={styles.dichvuform}>
+        <View>
+          <View style={styles.dichvu}>
+            <FontAwesome
+              name={"user-md"}
+              style={{ fontSize: 40, color: "#4995cd" }}
+            />
+            <Text style={{ marginLeft: 20, fontSize: 15 }}>Lịch hẹn</Text>
+          </View>
+          <Text style={{ marginLeft: 70, fontSize: 15, color: "gray" }}>
+       Quản lý lịch hẹn với bác sĩ
+          </Text>
+        </View>
+        </TouchableOpacity>
         
       <TouchableOpacity onPress={() => {
             this.props.navigation.navigate("DanhSachTinTuc");
@@ -50,6 +85,14 @@ export default class HomeThongBao extends Component {
           </Text>
         </View>
         </TouchableOpacity>
+
+
+
+
+
+
+
+
         
         
         

@@ -99,7 +99,6 @@ export default class ChonXetNghiemBV extends React.Component {
         const dienthoaibenhvien = navigation.getParam('dienthoaibenhvien');
         const tenbenhvien = navigation.getParam('tenbenhvien');
         const sodienthoai = navigation.getParam('sodienthoai');
-
         const {
             loadingVisible
           } = this.state;

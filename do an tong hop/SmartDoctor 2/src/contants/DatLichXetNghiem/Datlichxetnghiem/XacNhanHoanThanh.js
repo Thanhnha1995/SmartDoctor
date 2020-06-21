@@ -6,7 +6,7 @@ export default class XacNhanHoanThanh extends React.Component {
         return (
        <View style={styles.container}>
         <Image style={styles.image} source={require('../../../assets/bacsi/avatar.png')} />
-        <Text style={styles.thongbao}>Cảm ơn bạn đã đặt dịch vụ xet nghiệm của chúng tôi.</Text>
+        <Text style={styles.thongbao}>Cảm ơn bạn đã đặt dịch vụ xét nghiệm của chúng tôi.</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {

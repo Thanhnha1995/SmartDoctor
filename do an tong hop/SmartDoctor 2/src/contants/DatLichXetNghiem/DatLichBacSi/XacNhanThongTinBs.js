@@ -30,19 +30,20 @@ export default class XacNhanThongTinBs extends React.Component {
     const { navigation } = this.props;
     const { params } = this.props.navigation.state;
     const iduser = navigation.getParam("iduser");
-    const iddv = navigation.getParam("iddv");
     const ngay = navigation.getParam("ngay");
     const giatien = navigation.getParam("gt");
     const idbenhvien = navigation.getParam("idbenhvien");
     const idca = navigation.getParam("idca");
     const token = await getToken();
+    const idbacsi = navigation.getParam("idbacsi");
+
 
     //mahdxn
     var RandomNumber = Math.floor(100000 + Math.random() * 900000);
     this.setState({
       ma: RandomNumber,
     });
-    fetch(`${network}/datlich/xetnghiem/datlich.php`, {
+    fetch(`${network}/datlichbacsi/datlich.php`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -51,14 +52,13 @@ export default class XacNhanThongTinBs extends React.Component {
 
       body: JSON.stringify({
         token,
-        idnguoidung: iduser,
-        iddichvu: iddv,
-        ngay: ngay,
-        giatien: giatien,
-        idca: '1111',
-        idbenhvien: '11',
-        mahdxn: '11111',
-        idtrangthailichkham: 1,
+        idnguoidung:iduser,
+        ngay:ngay,
+        idcabacsi:idca,
+        idbenhvien:idbenhvien,
+        idbacsi:idbacsi,
+        idtrangthailichkham:1
+      
       }),
     });
   }
@@ -80,7 +80,6 @@ export default class XacNhanThongTinBs extends React.Component {
     const tenbacsi = navigation.getParam("tenbacsi");
     const giatien = navigation.getParam("giatien");
     const mahdxn = navigation.getParam("mahdxn");
-
     return (
       <View style={styles.container}>
         <StatusBar hidden />

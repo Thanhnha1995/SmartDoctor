@@ -12,7 +12,7 @@ import { Images } from "@Common";
 import { FontAwesome } from "@expo/vector-icons";
 import { network } from "../../config/Network";
 import GetIdUser from "../../Api/Token/GetIdUser";
-export default class ThongBaoTuVanHoiDap extends Component {
+export default class Donxetnghiem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +25,7 @@ export default class ThongBaoTuVanHoiDap extends Component {
     const iduser = await GetIdUser();
 
     const response = await fetch(
-      `${network}/thongbao/danhsachcauhoitheonguoidung.php?id=${iduser}`
+      `${network}/thongbao/donxetnghiem.php?id=${iduser}`
     );
     const products = await response.json();
     this.setState({ data: products });
@@ -52,14 +52,33 @@ export default class ThongBaoTuVanHoiDap extends Component {
                   delayPressIn={70}
                   activeOpacity={0.8}
                   onPress={() =>
-                    navigate("ChiTietThongBaoTuVanHoiDap", { id: item.iddatcauhoi })
+                    navigate("ChiTietDonxetnghiem", { id: item.idhdxetnghiem })
                   }
                 >   
                   <View style={styles.thongtinbacsi}>
-                    <View style={{ flexDirection: "row" }}>
-                      <View>
-                        <Text style={styles.hovaten}>{item.tendatcauhoi}</Text>                  
+                    <View style={{ flexDirection: "column" }}>
+                      <View style={{
+                        justifyContent:'space-between',
+                        flexDirection: "row"
+                      }}>
+                        <Text style={styles.hovaten}>Mã xác nhận</Text> 
+                        <Text style={{
+                          marginTop: 5,
+                    
+                        }}>{item.mahdxn}</Text>                    
                       </View>
+
+                      <View style={{
+                        justifyContent:'space-between',
+                        flexDirection: "row"
+                      }}>
+                        <Text style={styles.hovaten}>Bệnh viện</Text> 
+                        <Text style={{
+                          marginTop: 5,
+                    
+                        }}>{item.tenbenhvien}</Text>                    
+                      </View>
+
                     </View>
                     <View style={styles.tkbenhnhan}>
                       <Text style={styles.txttktuycan}>
@@ -210,9 +229,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   hovaten: {
-    fontWeight: "bold",
     fontSize: 20,
   },
+
   chuyenkhoa: {
     marginTop: 10,
     marginLeft: 10,

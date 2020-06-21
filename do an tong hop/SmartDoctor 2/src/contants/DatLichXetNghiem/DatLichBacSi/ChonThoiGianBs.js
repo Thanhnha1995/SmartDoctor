@@ -146,6 +146,7 @@ export default class ChonThoiGianBs extends React.Component {
     const dienthoaibenhvien = navigation.getParam("dienthoaibenhvien");
     const tenxetnghiem = navigation.getParam("tenxetnghiem");
     const giatien = navigation.getParam("giatien");
+    const idbacsi = navigation.getParam("idbacsi");
     const mahdxn = this.state.ma;
 
     this.datlichxetnghiem();
@@ -158,6 +159,7 @@ export default class ChonThoiGianBs extends React.Component {
       giatien,
       ngay: startDate,
       mahdxn: RandomNumber,
+      idbacsi
     });
   }
   componentDidUpdate() {
@@ -176,7 +178,6 @@ export default class ChonThoiGianBs extends React.Component {
     const startDate = selectedStartDate
       ? selectedStartDate.format("YYYY-MM-DD")
       : "";
-const idca= this.state.value;
     const { navigation } = this.props;
     const { params } = this.props.navigation.state;
     const iduser = navigation.getParam("iduser");
@@ -193,6 +194,7 @@ const idca= this.state.value;
     const idbacsi = navigation.getParam("idbacsi");
     const tenbacsi = navigation.getParam("tenbacsi");
     const tenchuyenkhoa = navigation.getParam("tenchuyenkhoa");
+    const idca= this.state.value;
     const BLUE = "#2196F3";
     const WHITE = "#FFFFFF";
     const GREY = "#BDBDBD";
