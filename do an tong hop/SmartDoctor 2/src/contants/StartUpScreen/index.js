@@ -5,7 +5,7 @@ import styles from "./styles";
 export default class StartUpScreen extends Component {
   render() {
     setTimeout(() => {
-      this.props.navigation.navigate("DangNhap");
+      this.props.navigation.navigate("Intro");
     }, 2000);
     return (
       <View style={styles.container}>      

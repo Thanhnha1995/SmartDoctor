@@ -3,20 +3,25 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {Image} from 'react-native';
+//splash
 import StartUpScreen from "../../contants/StartUpScreen";
 import Intro from "../../contants/Intro";
 import HomeDangNhap from "../../contants/HomeDangNhap";
 import DangKy from "../../contants/Auth/DangKy";
 import DangNhap from "../../contants/Auth/DangNhap";
 import HomeApp from "../../contants/Auth/HomeApp";
+//câu hỏi 
 import DanhSachCauHoi from "../../contants/DatCauHoiBacSi/DanhSachCauHoi";
 import ChiTietCauHoi from "../../contants/DatCauHoiBacSi/ChiTietCauHoi";
 import DatCauHoi from "../../contants/DatCauHoiBacSi/DatCauHoi";
 import ThongBaoThanhCong from "../../contants/DatCauHoiBacSi/ThongBaoThanhCong";
 import LichSuCauHoi from "../../contants/DatCauHoiBacSi/LichSuCauHoi";
+//danh sách bác sĩ 
 import DanhsachBacSi from "../../contants/BacSi/DanhSachBacSi";
 import ChietTietBacSi from "../../contants/BacSi/ChietTierBacSi";
+//firebase 
 import Chat from "../../contants/BacSi/Chat";
+//tin tức 
 import DanhSachTinTuc from "../../contants/TinTuc/DanhSachTinTuc";
 import ChiTietTinTuc from "../../contants/TinTuc/ChiTietTinTuc";
 import HomeThongBao from "../../contants/ThongBao/Home";
@@ -32,9 +37,11 @@ import ChonlichScreen from '../../contants/Datlichxn/Chonlichtheobacsi';
 import ChonThoiGianXn from '../../contants/DatLichXetNghiem/Datlichxetnghiem/ChonThoiGianXn';
 import XacNhanThongTin from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanThongTin';
 import ThongTinCaNhan from "../../contants/Auth/HoSo";
+//OTP xét nghiệm 
 import XacNhanOtp from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanOtp'
 import NhapMaOtp from '../../contants/DatLichXetNghiem/Datlichxetnghiem/NhapMaOtp'
 import XacNhanHoanThanh from '../../contants/DatLichXetNghiem/Datlichxetnghiem/XacNhanHoanThanh'
+//bệnh viện 
 import ChonBenhVienBacSi from '../../contants/DatLichXetNghiem/DatLichBacSi/ChonBenhVienBacSi'
 import ChonBacSiBs from '../../contants/DatLichXetNghiem/DatLichBacSi/ChonBacSiBs'
 import ChiTietBacSiBS from '../../contants/DatLichXetNghiem/DatLichBacSi/ChiTietBacSiBS'
@@ -43,6 +50,7 @@ import ThongTinLich from '../../contants/DatLichXetNghiem/DatLichBacSi/ThongTinL
 import NhapOtpBs from '../../contants/DatLichXetNghiem/DatLichBacSi/NhapOtpBs'
 import XacNhanThongTinBs from '../../contants/DatLichXetNghiem/DatLichBacSi/XacNhanThongTinBs'
 import XacNhanHoanThanhBs from '../../contants/DatLichXetNghiem/DatLichBacSi/XacNhanHoanThanhBs'
+//thông báo 
 import ChiTietThongBaoTuVanHoiDap from '../../contants/ThongBao/ChiTietThongBaoTuVanHoiDap'
 import ChiTietDonxetnghiem from '../../contants/ThongBao/ChiTietDonxetnghiem'
 import Donxetnghiem from '../../contants/ThongBao/Donxetnghiem'
@@ -150,7 +158,7 @@ const RootStack = createStackNavigator(
     DangKy: {
       screen: DangKy,
       navigationOptions:{
-        header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     DangNhap: {
@@ -168,7 +176,7 @@ const RootStack = createStackNavigator(
     DanhSachCauHoi: {
       screen: DanhSachCauHoi,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     ChiTietCauHoi: {
@@ -180,13 +188,13 @@ const RootStack = createStackNavigator(
     DatCauHoi: {
       screen: DatCauHoi,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'   
       }
     },
     ThongBaoTuVanHoiDap:{
       screen:ThongBaoTuVanHoiDap,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     ThongBaoThanhCong:{
@@ -198,14 +206,13 @@ const RootStack = createStackNavigator(
     DanhsachBacSi:{
       screen:DanhsachBacSi,
       navigationOptions:{
-        // titleheader:"back",
-        // header: null,    
+        headerBackTitle: 'Back'     
       }
     },
     ChietTietBacSi:{
       screen:ChietTietBacSi,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'    
       }
     },
     Messages:{
@@ -217,13 +224,13 @@ const RootStack = createStackNavigator(
     DanhSachTinTuc:{
       screen: DanhSachTinTuc,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     ChiTietTinTuc:{
       screen: ChiTietTinTuc,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     LichSuCauHoi:{
@@ -241,7 +248,7 @@ const RootStack = createStackNavigator(
     ChonchucnangScreen:{
       screen: Chonchucnang,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     LichsxetnghiemScreen:{
@@ -289,7 +296,7 @@ const RootStack = createStackNavigator(
     ThongTinCaNhan:{
       screen:ThongTinCaNhan,
       navigationOptions:{
-        // header: null,    
+        headerBackTitle: 'Back'  
       }
     },
     XacNhanOtp:{
@@ -367,25 +374,29 @@ const RootStack = createStackNavigator(
     Donxetnghiem:{
       screen:Donxetnghiem,
       navigationOptions:{
-        title:"Đơn xét nghiệm"
+        title:"Đơn xét nghiệm",
+        headerBackTitle: 'Back' 
       }
     },
     ChiTietDonxetnghiem:{
       screen:ChiTietDonxetnghiem,
       navigationOptions:{
-        title:"Chi tiết xét nghiệm"  
+        title:"Chi tiết xét nghiệm",
+        headerBackTitle: 'Back' 
       }
     },
     DanhSachLichHenBs:{
       screen:DanhSachLichHenBs,
       navigationOptions:{
-        title:"Danh sách lịch hẹn bác sĩ"  
+        title:"Danh sách lịch hẹn bác sĩ",
+        headerBackTitle: 'Back'   
       }
     },
     ChitTietDanhSachLichHenBs:{
       screen:ChitTietDanhSachLichHenBs,
       navigationOptions:{
-        title:"Thông tin lịch hẹn Bác sĩ"  
+        title:"Thông tin lịch hẹn Bác sĩ",
+        headerBackTitle: 'Back'   
       }
     }
 
