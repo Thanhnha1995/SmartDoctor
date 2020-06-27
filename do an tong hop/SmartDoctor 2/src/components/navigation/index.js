@@ -168,7 +168,7 @@ const RootStack = createStackNavigator(
     DanhSachCauHoi: {
       screen: DanhSachCauHoi,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     ChiTietCauHoi: {
@@ -180,13 +180,13 @@ const RootStack = createStackNavigator(
     DatCauHoi: {
       screen: DatCauHoi,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     ThongBaoTuVanHoiDap:{
       screen:ThongBaoTuVanHoiDap,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     ThongBaoThanhCong:{
@@ -198,31 +198,32 @@ const RootStack = createStackNavigator(
     DanhsachBacSi:{
       screen:DanhsachBacSi,
       navigationOptions:{
-        header: null,    
+        // titleheader:"back",
+        // header: null,    
       }
     },
     ChietTietBacSi:{
       screen:ChietTietBacSi,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     Messages:{
       screen:Messages,
       navigationOptions:{
-        header: null,    
+        title:"Thông tin lịch hẹn Bác sĩ"  
       }
     },
     DanhSachTinTuc:{
       screen: DanhSachTinTuc,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     ChiTietTinTuc:{
       screen: ChiTietTinTuc,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     LichSuCauHoi:{
@@ -240,7 +241,7 @@ const RootStack = createStackNavigator(
     ChonchucnangScreen:{
       screen: Chonchucnang,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     LichsxetnghiemScreen:{
@@ -288,7 +289,7 @@ const RootStack = createStackNavigator(
     ThongTinCaNhan:{
       screen:ThongTinCaNhan,
       navigationOptions:{
-        header: null,    
+        // header: null,    
       }
     },
     XacNhanOtp:{
