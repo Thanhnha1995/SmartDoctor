@@ -1,0 +1,17 @@
+[02-May-2020 11:51:57 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[02-May-2020 12:12:27 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/hieudevx/public_html/apidoctor/nguoidung/hoso.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/hieudevx/public_html/apidoctor/nguoidung/hoso.php on line 25
+[02-May-2020 21:57:19 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[02-May-2020 22:05:40 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[02-May-2020 22:05:56 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[02-May-2020 22:06:49 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:08:42 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:08:53 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:11:34 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:12:05 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:12:46 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:13:48 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:15:07 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
+[23-May-2020 19:15:14 Asia/Ho_Chi_Minh] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/hieudevx/public_html/apidoctor/nguoidung/dangnhap.php on line 34
